@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" data-ov="ui-sophisticated">
 <head>
@@ -227,10 +228,18 @@ function readUrlHashState(){
 
 function updateSubdomainBannerLinks(){
   try{
-    var payload=encodeURIComponent(JSON.stringify(UI_STATE));
+    writeRootDomainCookie(UI_STATE);
     document.querySelectorAll("a.sub-link").forEach(function(a){
       var base=a.dataset.sub||a.getAttribute("href").split("#")[0];
-      a.href=base+"#ffh="+payload;
+      a.href=base;
+      var btn=a.querySelector("button");
+      if(btn){
+        btn.onclick=function(e){
+          e.preventDefault();
+          writeRootDomainCookie(UI_STATE);
+          window.top.location.href=base;
+        };
+      }
     });
   }catch(e){}
 }
@@ -310,7 +319,8 @@ function initSharedCustomizerBar(){
   if(popBtn){
     popBtn.onclick=function(){
       var payload=encodeURIComponent(JSON.stringify(UI_STATE));
-      chromaPopupWin=window.open("https://chroma.forefronthawk.com#ffh="+payload,"HawkChromaCompanion","width=520,height=760");
+      writeRootDomainCookie(UI_STATE);
+      chromaPopupWin=window.open("https://chroma.forefronthawk.com","HawkChromaCompanion","width=520,height=760");
     };
   }
   window.addEventListener("message",function(e){
@@ -485,3 +495,4 @@ function onChromaColorReceived(hex){
 </script>
 </body>
 </html>
+```
