@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-ov="ui-sophisticated">
+<head>
+<title>HawkShine — Stage Lighting &amp; Laser Show Designer (forefronthawk.com)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090B10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=JetBrains+Mono:wght@500;700;800&family=Orbitron:wght@600;800&family=Press+Start+2P&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090B10;--panel:#121620;--line:#2A3040;--text:#F8FAFC;--mute:#94A3B8;--plate:#181D2A;--accent:#D4AF37;
+  --deck1:#161B26;--deck2:#0C0F17;--deck-border:#C5A059;--plate-border:#384152;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark
+}
+@media(prefers-color-scheme:light){:root[data-theme="auto"]{--bg:#E8EBF0;--panel:#F8FAFC;--line:#CBD5E1;--text:#0F172A;--mute:#475569;--plate:#8B93A3;--deck1:#CBD5E1;--deck2:#94A3B8;--deck-border:#64748B;color-scheme:light}}
+:root[data-theme="dark"]{--bg:#07090E;--panel:#12141A;--line:#262A34;--text:#F1F5F9;--mute:#94A3B8;--plate:#4B505C;--deck1:#1A1C23;--deck2:#101216;--deck-border:#2D323E}
+:root[data-theme="light"]{--bg:#E8EBF0;--panel:#F8FAFC;--line:#CBD5E1;--text:#0F172A;--mute:#475569;--plate:#8B93A3;--deck1:#CBD5E1;--deck2:#94A3B8;--deck-border:#64748B;color-scheme:light}
+:root[data-theme="matrix"]{--bg:#010902;--panel:#031606;--line:#00FF41;--text:#00FF41;--mute:#15803D;--plate:#042409;--accent:#00FF41;--deck1:#031A07;--deck2:#010802;--deck-border:#00FF41}
+:root[data-theme="midnight"]{--bg:#020617;--panel:#0F172A;--line:#1E293B;--text:#E2E8F0;--mute:#64748B;--plate:#1E293B;--deck1:#0F172A;--deck2:#020617;--deck-border:#334155}
+:root[data-theme="cyberpunk"]{--bg:#0D0221;--panel:#19053B;--line:#4C1D95;--text:#F0ABFC;--mute:#C084FC;--plate:#2E1065;--deck1:#240046;--deck2:#10002B;--deck-border:#7E22CE}
+:root[data-theme="emerald"]{--bg:#021612;--panel:#062821;--line:#0F4C3E;--text:#D1FAE5;--mute:#6EE7B7;--plate:#114237;--deck1:#06342B;--deck2:#021B16;--deck-border:#059669}
+:root[data-theme="crimson"]{--bg:#160408;--panel:#280911;--line:#501322;--text:#FFE4E6;--mute:#FDA4AF;--plate:#3F101C;--deck1:#310B15;--deck2:#190409;--deck-border:#BE123C}
+:root[data-theme="nord"]{--bg:#2E3440;--panel:#3B4252;--line:#4C566A;--text:#ECEFF4;--mute:#D8DEE9;--plate:#434C5E;--deck1:#3B4252;--deck2:#2E3440;--deck-border:#4C566A}
+:root[data-theme="solarlight"]{--bg:#FDF6E3;--panel:#EEE8D5;--line:#D3CBB7;--text:#073642;--mute:#586E75;--plate:#93A1A1;--deck1:#E1DBCA;--deck2:#D3CBB7;--deck-border:#93A1A1;color-scheme:light}
+:root[data-theme="solardark"]{--bg:#002B36;--panel:#073642;--line:#2AA198;--text:#93A1A1;--mute:#657B83;--plate:#0A4452;--deck1:#073642;--deck2:#00212B;--deck-border:#586E75}
+:root[data-theme="mocha"]{--bg:#1E1E2E;--panel:#181825;--line:#313244;--text:#CDD6F4;--mute:#A6ADC8;--plate:#45475A;--deck1:#26273B;--deck2:#11111B;--deck-border:#585B70}
+:root[data-theme="contrast"]{--bg:#000000;--panel:#0A0A0A;--line:#FFFFFF;--text:#FFFFFF;--mute:#E2E8F0;--plate:#1F1F1F;--deck1:#0A0A0A;--deck2:#000000;--deck-border:#FFFFFF}
+
+/* Core Overlays (Sophisticated ForefrontHawk Default, Tech, Futuristic, Classic & 20 Hardware/OS Skins) */
+[data-ov="ui-sophisticated"]{--bg:#090B10;--panel:#121620;--line:#2A3040;--text:#F8FAFC;--mute:#94A3B8;--plate:#181D2A;--accent:#D4AF37;--deck1:#161B26;--deck2:#0C0F17;--deck-border:#C5A059}
+[data-ov="ui-sophisticated"] .bar{background:linear-gradient(180deg,rgba(22,27,38,0.96),rgba(14,17,24,0.98))!important;border:1px solid rgba(212,175,55,0.35)!important}
+[data-ov="ui-sophisticated"] .deck{border:2px solid #C5A059!important;box-shadow:0 18px 45px rgba(0,0,0,0.85)!important}
+[data-ov="ui-tech"]{--bg:#040B14;--panel:#071524;--line:#0EA5E9;--text:#E0F2FE;--mute:#38BDF8;--plate:#081C30;--accent:#00F5D4;--deck1:#07192B;--deck2:#030C16;--deck-border:#0EA5E9;--font:"JetBrains Mono",monospace}
+[data-ov="ui-tech"] .bar,[data-ov="ui-tech"] .deck{border-radius:3px!important;border-color:#0EA5E9!important}
+[data-ov="ui-futuristic"]{--bg:#060414;--panel:#110B29;--line:#8B5CF6;--text:#F3E8FF;--mute:#C4B5FD;--plate:#170F36;--accent:#00F0FF;--deck1:#19103B;--deck2:#09051A;--deck-border:#00F0FF}
+[data-ov="ui-futuristic"] .bar,[data-ov="ui-futuristic"] .deck{border-radius:18px!important;border-color:#00F0FF!important;box-shadow:0 0 24px rgba(139,92,246,0.3)!important}
+[data-ov="os-win95"] .bar,[data-ov="os-win95"] .deck{background:#C0C0C0!important;color:#000!important;border:2px outset #FFF!important;border-radius:0!important}
+[data-ov="os-winxp"] .bar,[data-ov="os-winxp"] .deck{background:linear-gradient(180deg,#245EDB,#1941A5)!important;color:#FFF!important;border:2px solid #003399!important}
+[data-ov="os-pipboy"] .bar,[data-ov="os-pipboy"] .deck{background:#051405!important;color:#1AFF40!important;border:2px solid #1AFF40!important}
+[data-ov="app-winamp"] .bar,[data-ov="app-winamp"] .deck{background:#292938!important;color:#00FF00!important;border:2px ridge #6E738B!important;border-radius:0!important}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font:500 13px/1.4 var(--font);min-height:100vh;overflow-x:hidden;transition:background-color .18s,color .18s}
+.wrap{max-width:1240px;margin:0 auto;padding:8px 10px;display:flex;flex-direction:column;gap:8px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:7px 10px}
+button,select,input{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:4px 8px;min-height:32px;cursor:pointer}
+button:hover{filter:brightness(1.14)}
+input[type=range]{padding:0;border:0;background:none;accent-color:var(--accent);min-height:auto}
+input[type=color]{padding:1px;width:36px;height:30px;min-height:30px}
+.brand{font-weight:800;font-size:15.5px;display:flex;align-items:center;gap:6px}.brand i{font-style:normal;color:var(--accent)}
+.chip{font:600 11px var(--mono);padding:3px 8px;border-radius:7px;border:1px solid var(--line);color:var(--mute)}
+.seg{display:flex;flex-wrap:wrap;gap:2px;border:1px solid var(--line);border-radius:10px;padding:2px}
+.seg button{border:0;min-height:26px;padding:2px 8px;background:none;color:var(--mute);font-weight:700;font-size:11.5px;border-radius:7px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#04121C}
+.deck{display:flex;flex-direction:column;gap:10px;background:linear-gradient(145deg,var(--deck1),var(--deck2));border:2px solid var(--deck-border);border-radius:18px;padding:12px}
+.subcard{background:rgba(0,0,0,0.2);border:1px solid var(--line);border-radius:10px;padding:7px 9px;width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.subhead{font:800 10.5px var(--mono);text-transform:uppercase;color:var(--accent);letter-spacing:0.5px;margin-right:4px}
+.swatch-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:8px;border:2px solid #fff;font:800 12px var(--mono);box-shadow:0 0 12px var(--active-c,#10B981)}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <!-- SHARED FOREFRONTHAWK.COM ECOSYSTEM HEADER & CUSTOMIZER -->
+  <header class="bar">
+    <span class="brand">🦅 Forefront<i>Hawk</i> <span class="chip">HawkShine Laser & DMX</span></span>
+    <nav class="seg" id="suiteNavSeg" aria-label="ForefrontHawk Suite Navigation">
+      <button type="button" data-page="HawkChroma" aria-pressed="false">🎹 HawkChroma</button>
+      <button type="button" data-page="HawkDraw" aria-pressed="false">💡 HawkDraw</button>
+      <button type="button" data-page="HawkShine" aria-pressed="true">⚡ HawkShine</button>
+      <button type="button" data-page="HawkRGB" aria-pressed="false">🎞️ HawkRGB</button>
+    </nav>
+    <div style="display:flex;align-items:center;gap:6px;margin-left:auto">
+      <span class="chip" title="Live Color Synced from HawkChroma Tab">Chroma Link:</span>
+      <span id="chromaLiveSwatch" class="swatch-pill" style="background:#10B981;color:#080B10">#10B981 (GRN)</span>
+      <button id="toggleSharedCustBtn" type="button">🛠️ UI &amp; Skin</button>
+    </div>
+  </header>
+
+  <section id="sharedCustPanel" class="bar" hidden>
+    <div class="subcard">
+      <span class="subhead">Shared forefronthawk.com UI (Travels Across All Sites)</span>
+      <label>🎛️ Overlay <select id="sharedOverlaySel"></select></label>
+      <label>UI Theme
+        <select id="sharedThemeSel">
+          <option value="dark">Obsidian Dark</option>
+          <option value="light">Studio Daylight</option>
+          <option value="matrix">Matrix Digital Code</option>
+          <option value="midnight">Midnight OLED</option>
+          <option value="cyberpunk">Cyberpunk Neon</option>
+          <option value="emerald">Emerald Matrix</option>
+          <option value="crimson">Crimson Forged</option>
+          <option value="nord">Nordic Frost</option>
+          <option value="solarlight">Solarized Light</option>
+          <option value="solardark">Solarized Dark</option>
+          <option value="mocha">Catppuccin Mocha</option>
+          <option value="contrast">High-Contrast Pro</option>
+          <option value="custom_live">★ Custom Colors</option>
+        </select>
+      </label>
+      <label>Font
+        <select id="sharedFontSel">
+          <option value="system">System Sans</option>
+          <option value="calibri">Calibri</option>
+          <option value="arial">Arial</option>
+          <option value="inter">Inter Studio</option>
+          <option value="serif">Serif</option>
+          <option value="mono">JetBrains Mono</option>
+          <option value="space">Space Grotesk</option>
+          <option value="orbitron">Orbitron Cyber</option>
+          <option value="pixel">8-Bit Pixel</option>
+        </select>
+      </label>
+      <label>BG <input type="color" id="cBgIn" value="#090B10"></label>
+      <label>Panel <input type="color" id="cPanelIn" value="#121620"></label>
+      <label>Text <input type="color" id="cTextIn" value="#F8FAFC"></label>
+    </div>
+  </section>
+
+
+  <section class="bar">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;width:100%">
+      <div class="seg" id="laserGeoSeg">
+        <button data-g="fan" aria-pressed="true">📐 Laser Fan</button>
+        <button data-g="tunnel" aria-pressed="false">🌀 Cone Tunnel</button>
+        <button data-g="lissajous" aria-pressed="false">♾️ Lissajous ILDA</button>
+        <button data-g="matrix" aria-pressed="false">⚡ Truss Beams</button>
+      </div>
+      <label>Target Fixture Group
+        <select id="fixtureGroupSel">
+          <option value="0">Group 1: Left Truss Wash + Laser A</option>
+          <option value="1">Group 2: Center Spotlights + Main ILDA</option>
+          <option value="2">Group 3: Right Truss Wash + Laser B</option>
+          <option value="all">All Fixtures (Master Color Inject)</option>
+        </select>
+      </label>
+      <button id="assignChromaToGroupBtn" style="border-color:var(--accent);color:var(--accent);font-weight:800">🎨 Apply Chroma Color to Group</button>
+      <label>BPM Speed <input type="range" id="shineBpmRange" min="40" max="220" value="128" style="width:90px"></label>
+      <label>Haze <input type="range" id="shineHazeRange" min="10" max="100" value="75" style="width:80px"></label>
+      <button id="shineStrobeBtn">⚡ Strobe: Off</button>
+    </div>
+  </section>
+
+  <main class="deck">
+    <canvas id="shineCanvas" width="1100" height="520" style="width:100%;height:auto;background:#030509;border-radius:12px;border:1px solid var(--line)"></canvas>
+  </main>
+</div>
+
+<script>
+
+var FONTS={
+  system:'system-ui,-apple-system,"Segoe UI",Roboto,sans-serif',
+  calibri:'Calibri,"Segoe UI",Candara,sans-serif',
+  arial:'Arial,"Helvetica Neue",Helvetica,sans-serif',
+  inter:'"Inter",system-ui,sans-serif',
+  serif:'Georgia,"Times New Roman",Times,serif',
+  mono:'"JetBrains Mono",Consolas,ui-monospace,monospace',
+  space:'"Space Grotesk",system-ui,sans-serif',
+  orbitron:'"Orbitron",system-ui,sans-serif',
+  pixel:'"Press Start 2P",ui-monospace,monospace'
+};
+var ACC={sky:"#38BDF8",gold:"#D4AF37",green:"#34D399",amber:"#FBBF24",rose:"#FB7185",violet:"#A78BFA"};
+var OVERLAY_LIST=[
+  ["ui-sophisticated","★ Sophisticated (ForefrontHawk)"],
+  ["ui-tech","★ Tech (CAD Telemetry)"],
+  ["ui-futuristic","★ Futuristic (Holo-Glass)"],
+  ["none","0. Classic UI"],["mech-ibm","1. IBM Model M"],["mech-c64","2. Commodore 64"],
+  ["mech-cyber","3. Cyber Neon"],["mech-typewriter","4. Typewriter"],["mech-arcade","5. Arcade Sanwa"],
+  ["plug-vst","6. VST Rack"],["plug-eurorack","7. Eurorack"],["plug-mpc","8. Akai MPC"],
+  ["plug-dmx","9. GrandMA DMX"],["plug-davinci","10. DaVinci Panel"],["app-winamp","11. Winamp 2.x"],
+  ["app-ps3","12. Photoshop 3"],["app-lotus","13. Lotus 1-2-3"],["app-soundforge","14. FastTracker"],
+  ["app-hypercard","15. HyperCard"],["os-win95","16. Windows 95"],["os-winxp","17. Windows XP"],
+  ["os-mac9","18. Mac OS 9"],["os-amiga","19. AmigaOS 1.3"],["os-pipboy","20. CRT Pip-Boy"]
+];
+
+var UI_STATE={
+  mode:"dark",overlay:"ui-sophisticated",font:"system",accent:"gold",
+  cBg:"#090B10",cPanel:"#121620",cText:"#F8FAFC",cPlate:"#181D2A",
+  activeColor:"#10B981",activeLabel:"GRN"
+};
+
+var suiteChan=null,chromaChan=null;
+try{
+  if(typeof BroadcastChannel!=="undefined"){
+    suiteChan=new BroadcastChannel("forefronthawk_suite_bus");
+    chromaChan=new BroadcastChannel("hawkchroma_2x10_bus");
+  }
+}catch(e){}
+
+function loadSharedUi(){
+  try{
+    var sv=JSON.parse(localStorage.getItem("forefronthawk_shared_ui")||localStorage.getItem("hawkchroma_v4")||"null");
+    if(sv){
+      if(sv.mode)UI_STATE.mode=sv.mode;
+      if(sv.overlay)UI_STATE.overlay=sv.overlay;
+      if(sv.font)UI_STATE.font=sv.font;
+      if(sv.accent)UI_STATE.accent=sv.accent;
+      if(sv.cBg)UI_STATE.cBg=sv.cBg;
+      if(sv.cPanel)UI_STATE.cPanel=sv.cPanel;
+      if(sv.cText)UI_STATE.cText=sv.cText;
+      if(sv.cPlate)UI_STATE.cPlate=sv.cPlate;
+      if(sv.activeColor||sv.shown||sv.hex)UI_STATE.activeColor=sv.activeColor||sv.shown||sv.hex;
+    }
+  }catch(e){}
+  applySharedUiToDom();
+}
+
+function saveAndBroadcastUi(broadcast){
+  try{
+    localStorage.setItem("forefronthawk_shared_ui",JSON.stringify(UI_STATE));
+    // Also update hawkchroma_v4 so HawkChroma inherits changes immediately
+    var hc=JSON.parse(localStorage.getItem("hawkchroma_v4")||"{}");
+    hc.mode=UI_STATE.mode;hc.overlay=UI_STATE.overlay;hc.font=UI_STATE.font;
+    hc.cBg=UI_STATE.cBg;hc.cPanel=UI_STATE.cPanel;hc.cText=UI_STATE.cText;hc.cPlate=UI_STATE.cPlate;
+    hc.shown=UI_STATE.activeColor;hc.hex=UI_STATE.activeColor;
+    localStorage.setItem("hawkchroma_v4",JSON.stringify(hc));
+  }catch(e){}
+  applySharedUiToDom();
+  if(broadcast&&suiteChan){
+    try{suiteChan.postMessage({type:"FFH_UI_SYNC",ui:UI_STATE})}catch(e){}
+  }
+}
+
+function applySharedUiToDom(){
+  var r=document.documentElement;
+  r.setAttribute("data-theme",UI_STATE.mode||"dark");
+  if(UI_STATE.overlay&&UI_STATE.overlay!=="none")r.setAttribute("data-ov",UI_STATE.overlay);
+  else r.removeAttribute("data-ov");
+  r.style.setProperty("--font",FONTS[UI_STATE.font]||FONTS.system);
+  r.style.setProperty("--accent",ACC[UI_STATE.accent]||"#D4AF37");
+  if(UI_STATE.mode==="custom_live"){
+    r.style.setProperty("--bg",UI_STATE.cBg);
+    r.style.setProperty("--panel",UI_STATE.cPanel);
+    r.style.setProperty("--text",UI_STATE.cText);
+    r.style.setProperty("--plate",UI_STATE.cPlate);
+  }else{
+    r.style.removeProperty("--bg");r.style.removeProperty("--panel");
+    r.style.removeProperty("--text");r.style.removeProperty("--plate");
+  }
+  r.style.setProperty("--active-c",UI_STATE.activeColor);
+  var sw=document.getElementById("chromaLiveSwatch");
+  if(sw){
+    sw.style.background=UI_STATE.activeColor;
+    sw.textContent=UI_STATE.activeColor+" ("+UI_STATE.activeLabel+")";
+  }
+  if(document.getElementById("sharedOverlaySel"))document.getElementById("sharedOverlaySel").value=UI_STATE.overlay;
+  if(document.getElementById("sharedThemeSel"))document.getElementById("sharedThemeSel").value=UI_STATE.mode;
+  if(document.getElementById("sharedFontSel"))document.getElementById("sharedFontSel").value=UI_STATE.font;
+  if(typeof onChromaColorReceived==="function")onChromaColorReceived(UI_STATE.activeColor,UI_STATE.activeLabel);
+}
+
+function initSharedCustomizerBar(){
+  document.querySelectorAll("#suiteNavSeg button").forEach(function(b){b.onclick=function(){location.assign(b.dataset.page+".html")}});
+  var ovSel=document.getElementById("sharedOverlaySel");
+  if(ovSel&&!ovSel.options.length){
+    OVERLAY_LIST.forEach(function(o){
+      var op=document.createElement("option");op.value=o[0];op.textContent=o[1];ovSel.appendChild(op);
+    });
+    ovSel.onchange=function(){UI_STATE.overlay=this.value;saveAndBroadcastUi(true)};
+  }
+  var thSel=document.getElementById("sharedThemeSel");
+  if(thSel){thSel.onchange=function(){UI_STATE.mode=this.value;saveAndBroadcastUi(true)}}
+  var fnSel=document.getElementById("sharedFontSel");
+  if(fnSel){fnSel.onchange=function(){UI_STATE.font=this.value;saveAndBroadcastUi(true)}}
+  var custBtn=document.getElementById("toggleSharedCustBtn");
+  if(custBtn){
+    custBtn.onclick=function(){
+      var p=document.getElementById("sharedCustPanel");
+      if(p)p.hidden=!p.hidden;
+    };
+  }
+  ["cBgIn","cPanelIn","cTextIn"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.oninput=function(){
+      UI_STATE.cBg=document.getElementById("cBgIn").value;
+      UI_STATE.cPanel=document.getElementById("cPanelIn").value;
+      UI_STATE.cText=document.getElementById("cTextIn").value;
+      UI_STATE.mode="custom_live";
+      saveAndBroadcastUi(true);
+    };
+  });
+}
+
+// Listen for cross-tab / cross-window updates from HawkChroma or any forefronthawk.com app
+window.addEventListener("storage",function(e){
+  if(e.key==="forefronthawk_shared_ui"||e.key==="hawkchroma_v4")loadSharedUi();
+});
+if(suiteChan){
+  suiteChan.onmessage=function(e){
+    if(e.data&&e.data.ui){
+      Object.assign(UI_STATE,e.data.ui);
+      applySharedUiToDom();
+    }
+  };
+}
+if(chromaChan){
+  chromaChan.onmessage=function(e){
+    if(e.data&&e.data.hex){
+      UI_STATE.activeColor=e.data.hex.toUpperCase();
+      UI_STATE.activeLabel=e.data.label||"CHROMA";
+      saveAndBroadcastUi(false);
+    }
+  };
+}
+
+var groupColors=["#D4AF37","#10B981","#38BDF8"];
+function onChromaColorReceived(hex){
+  var sel=document.getElementById("fixtureGroupSel");
+  if(!sel)return;
+  if(sel.value==="all")groupColors=[hex,hex,hex];
+  else groupColors[+sel.value||0]=hex;
+}
+(function(){
+  var cv=document.getElementById("shineCanvas"),ctx=cv.getContext("2d");
+  var geo="fan",bpm=128,haze=0.75,strobe=false,tick=0;
+
+  document.querySelectorAll("#laserGeoSeg button").forEach(function(b){
+    b.onclick=function(){
+      geo=b.dataset.g;
+      document.querySelectorAll("#laserGeoSeg button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});
+    };
+  });
+  document.getElementById("assignChromaToGroupBtn").onclick=function(){
+    onChromaColorReceived(UI_STATE.activeColor||"#10B981");
+  };
+  document.getElementById("shineBpmRange").oninput=function(){bpm=+this.value};
+  document.getElementById("shineHazeRange").oninput=function(){haze=+this.value/100};
+  document.getElementById("shineStrobeBtn").onclick=function(){
+    strobe=!strobe;this.textContent=strobe?"⚡ Strobe: ON":"⚡ Strobe: Off";
+  };
+
+  function renderShow(){
+    tick+=(bpm/120)*0.035;
+    ctx.fillStyle="rgba(3, 5, 9, "+(1-haze*0.65)+")";
+    ctx.fillRect(0,0,cv.width,cv.height);
+
+    // Draw Overhead Truss
+    ctx.strokeStyle="#334155";ctx.lineWidth=3;
+    ctx.strokeRect(40,18,cv.width-80,14);
+
+    if(strobe&&Math.floor(tick*20)%2===0){
+      ctx.fillStyle="rgba(255,255,255,0.22)";
+      ctx.fillRect(0,0,cv.width,cv.height);
+    }
+
+    // 8 Moving Head Fixtures + 3 ILDA Laser Projectors
+    for(var i=0;i<8;i++){
+      var fx=95+i*130,fy=32;
+      var gIdx=i<3?0:i<5?1:2;
+      var col=groupColors[gIdx]||"#10B981";
+      var pan=Math.sin(tick+(i*0.6))*160;
+      var tx=fx+pan,ty=cv.height-20;
+
+      var grad=ctx.createLinearGradient(fx,fy,tx,ty);
+      grad.addColorStop(0,col);
+      grad.addColorStop(1,"transparent");
+      ctx.fillStyle=grad;
+      ctx.globalAlpha=haze*0.48;
+      ctx.beginPath();
+      ctx.moveTo(fx-8,fy);ctx.lineTo(fx+8,fy);
+      ctx.lineTo(tx+95,ty);ctx.lineTo(tx-95,ty);
+      ctx.closePath();ctx.fill();
+
+      // Laser Geometry Overlay
+      ctx.globalAlpha=0.95;
+      ctx.strokeStyle=col;ctx.lineWidth=2;
+      if(geo==="fan"){
+        for(var ray=-4;ray<=4;ray++){
+          ctx.beginPath();ctx.moveTo(fx,fy);
+          ctx.lineTo(tx+ray*32,ty);ctx.stroke();
+        }
+      }else if(geo==="tunnel"&&i%2===0){
+        ctx.beginPath();
+        var r=45+Math.sin(tick*2+i)*25;
+        ctx.arc(tx,cv.height*0.62,r,0,Math.PI*2);
+        ctx.stroke();
+      }else if(geo==="lissajous"&&i>=2&&i<=5){
+        ctx.beginPath();
+        for(var t=0;t<Math.PI*2;t+=0.1){
+          var lx=tx+Math.sin(3*t+tick)*85;
+          var ly=cv.height*0.58+Math.sin(4*t)*55;
+          if(t===0)ctx.moveTo(lx,ly);else ctx.lineTo(lx,ly);
+        }
+        ctx.stroke();
+      }
+
+      // Fixture Head LED
+      ctx.fillStyle=col;
+      ctx.beginPath();ctx.arc(fx,fy,7,0,Math.PI*2);ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    requestAnimationFrame(renderShow);
+  }
+
+  initSharedCustomizerBar();
+  loadSharedUi();
+  requestAnimationFrame(renderShow);
+})();
+</script>
+</body>
+</html>
