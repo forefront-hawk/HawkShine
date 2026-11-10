@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-ov="ui-sophisticated">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>HawkShine — 3D DJ Light Show, Laser Geography, Smoke &amp; Pyrotechnics Studio | forefronthawk.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Orbitron:wght@600;800;900&family=Press+Start+2P&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#090B10;--panel:#121620;--line:#2A3040;--text:#F8FAFC;--mute:#94A3B8;--plate:#181D2A;--accent:#D4AF37;
+--deck1:#161B26;--deck2:#0C0F17;--deck-border:#C5A059;--plate-border:#384152;
+--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark
+}
+@media(prefers-color-scheme:light){:root[data-theme="auto"]{--bg:#E8EBF0;--panel:#F8FAFC;--line:#CBD5E1;--text:#0F172A;--mute:#475569;--plate:#8B93A3;--deck1:#CBD5E1;--deck2:#94A3B8;--deck-border:#64748B;color-scheme:light}}
+:root[data-theme="dark"]{--bg:#07090E;--panel:#12141A;--line:#262A34;--text:#F1F5F9;--mute:#94A3B8;--plate:#4B505C;--deck1:#1A1C23;--deck2:#101216;--deck-border:#2D323E}
+:root[data-theme="light"]{--bg:#E8EBF0;--panel:#F8FAFC;--line:#CBD5E1;--text:#0F172A;--mute:#475569;--plate:#8B93A3;--deck1:#CBD5E1;--deck2:#94A3B8;--deck-border:#64748B;color-scheme:light}
+:root[data-theme="matrix"]{--bg:#010902;--panel:#031606;--line:#00FF41;--text:#00FF41;--mute:#15803D;--plate:#042409;--accent:#00FF41;--deck1:#031A07;--deck2:#010802;--deck-border:#00FF41}
+:root[data-theme="midnight"]{--bg:#020617;--panel:#0F172A;--line:#1E293B;--text:#E2E8F0;--mute:#64748B;--plate:#1E293B;--deck1:#0F172A;--deck2:#020617;--deck-border:#334155}
+:root[data-theme="cyberpunk"]{--bg:#0D0221;--panel:#19053B;--line:#4C1D95;--text:#F0ABFC;--mute:#C084FC;--plate:#2E1065;--deck1:#240046;--deck2:#10002B;--deck-border:#7E22CE}
+:root[data-theme="emerald"]{--bg:#021612;--panel:#062821;--line:#0F4C3E;--text:#D1FAE5;--mute:#6EE7B7;--plate:#114237;--deck1:#06342B;--deck2:#021B16;--deck-border:#059669}
+:root[data-theme="crimson"]{--bg:#160408;--panel:#280911;--line:#501322;--text:#FFE4E6;--mute:#FDA4AF;--plate:#3F101C;--deck1:#310B15;--deck2:#190409;--deck-border:#BE123C}
+:root[data-theme="nord"]{--bg:#2E3440;--panel:#3B4252;--line:#4C566A;--text:#ECEFF4;--mute:#D8DEE9;--plate:#434C5E;--deck1:#3B4252;--deck2:#2E3440;--deck-border:#4C566A}
+:root[data-theme="solarlight"]{--bg:#FDF6E3;--panel:#EEE8D5;--line:#D3CBB7;--text:#073642;--mute:#586E75;--plate:#93A1A1;--deck1:#E1DBCA;--deck2:#D3CBB7;--deck-border:#93A1A1;color-scheme:light}
+:root[data-theme="solardark"]{--bg:#002B36;--panel:#073642;--line:#2AA198;--text:#93A1A1;--mute:#657B83;--plate:#0A4452;--deck1:#073642;--deck2:#00212B;--deck-border:#586E75}
+:root[data-theme="mocha"]{--bg:#1E1E2E;--panel:#181825;--line:#313244;--text:#CDD6F4;--mute:#A6ADC8;--plate:#45475A;--deck1:#26273B;--deck2:#11111B;--deck-border:#585B70}
+:root[data-theme="contrast"]{--bg:#000000;--panel:#0A0A0A;--line:#FFFFFF;--text:#FFFFFF;--mute:#E2E8F0;--plate:#1F1F1F;--deck1:#0A0A0A;--deck2:#000000;--deck-border:#FFFFFF}
+/* Core Overlays (Sophisticated ForefrontHawk Default, Tech, Futuristic, Classic & 20 Hardware/OS Skins) */
+[data-ov="ui-sophisticated"]{--bg:#090B10;--panel:#121620;--line:#2A3040;--text:#F8FAFC;--mute:#94A3B8;--plate:#181D2A;--accent:#D4AF37;--deck1:#161B26;--deck2:#0C0F17;--deck-border:#C5A059}
+[data-ov="ui-sophisticated"] .bar{background:linear-gradient(180deg,rgba(22,27,38,0.96),rgba(14,17,24,0.98))!important;border:1px solid rgba(212,175,55,0.35)!important}
+[data-ov="ui-sophisticated"] .deck{border:2px solid #C5A059!important;box-shadow:0 18px 45px rgba(0,0,0,0.85)!important}
+[data-ov="ui-tech"]{--bg:#040B14;--panel:#071524;--line:#0EA5E9;--text:#E0F2FE;--mute:#38BDF8;--plate:#081C30;--accent:#00F5D4;--deck1:#07192B;--deck2:#030C16;--deck-border:#0EA5E9;--font:"JetBrains Mono",monospace}
+[data-ov="ui-tech"] .bar,[data-ov="ui-tech"] .deck{border-radius:3px!important;border-color:#0EA5E9!important}
+[data-ov="ui-futuristic"]{--bg:#060414;--panel:#110B29;--line:#8B5CF6;--text:#F3E8FF;--mute:#C4B5FD;--plate:#170F36;--accent:#00F0FF;--deck1:#19103B;--deck2:#09051A;--deck-border:#00F0FF}
+[data-ov="ui-futuristic"] .bar,[data-ov="ui-futuristic"] .deck{border-radius:18px!important;border-color:#00F0FF!important;box-shadow:0 0 24px rgba(139,92,246,0.3)!important}
+[data-ov="os-win95"] .bar,[data-ov="os-win95"] .deck{background:#C0C0C0!important;color:#000!important;border:2px outset #FFF!important;border-radius:0!important}
+[data-ov="os-winxp"] .bar,[data-ov="os-winxp"] .deck{background:linear-gradient(180deg,#245EDB,#1941A5)!important;color:#FFF!important;border:2px solid #003399!important}
+[data-ov="os-pipboy"] .bar,[data-ov="os-pipboy"] .deck{background:#051405!important;color:#1AFF40!important;border:2px solid #1AFF40!important}
+[data-ov="app-winamp"] .bar,[data-ov="app-winamp"] .deck{background:#292938!important;color:#00FF00!important;border:2px ridge #6E738B!important;border-radius:0!important}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font:500 13px/1.4 var(--font);min-height:100vh;overflow-x:hidden;transition:background-color .18s,color .18s}
+.wrap{max-width:1240px;margin:0 auto;padding:8px 10px;display:flex;flex-direction:column;gap:8px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:7px 10px}
+button,select,input{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:4px 8px;min-height:32px;cursor:pointer}
+button:hover{filter:brightness(1.14)}
+input[type=range]{padding:0;border:0;background:none;accent-color:var(--accent);min-height:auto}
+input[type=color]{padding:1px;width:36px;height:30px;min-height:30px}
+.brand{font-weight:800;font-size:15.5px;display:flex;align-items:center;gap:6px}.brand i{font-style:normal;color:var(--accent)}
+.chip{font:600 11px var(--mono);padding:3px 8px;border-radius:7px;border:1px solid var(--line);color:var(--mute)}
+.seg{display:flex;flex-wrap:wrap;gap:2px;border:1px solid var(--line);border-radius:10px;padding:2px}
+.seg button,.seg a.nav-pill{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;min-height:26px;padding:2px 9px;background:none;color:var(--mute);font-weight:700;font-size:11.5px;border-radius:7px;cursor:pointer}
+.seg button[aria-current="page"],.seg a.nav-pill[aria-current="page"]{background:var(--accent);color:#04121C}
+.deck{display:flex;flex-direction:column;gap:10px;background:linear-gradient(145deg,var(--deck1),var(--deck2));border:2px solid var(--deck-border);border-radius:18px;padding:12px}
+.subcard{background:rgba(0,0,0,0.2);border:1px solid var(--line);border-radius:10px;padding:7px 9px;width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.subhead{font:800 10.5px var(--mono);text-transform:uppercase;color:var(--accent);letter-spacing:0.5px;margin-right:4px}
+.swatch-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:8px;border:2px solid #fff;font:800 12px var(--mono);box-shadow:0 0 12px var(--active-c,#10B981)}
+</style>
+<style>
+.hero-stage-card {
+background: radial-gradient(circle at 50% 15%, #0F172A 0%, #030509 75%);
+border: 1px solid var(--line);
+border-radius: 14px;
+padding: 8px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+box-shadow: 0 14px 38px rgba(0,0,0,0.65);
+}
+#shineCanvas {
+width: 100%;
+height: clamp(300px, 50dvh, 560px);
+display: block;
+background: #020307;
+border-radius: 10px;
+border: 1px solid rgba(212,175,55,0.32);
+cursor: grab;
+touch-action: none;
+}
+#shineCanvas:active { cursor: grabbing; }
+.fx-trigger-bar {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 6px;
+padding: 6px 8px;
+background: rgba(8, 12, 20, 0.85);
+border-radius: 10px;
+border: 1px solid var(--line);
+}
+.fx-pad {
+font: 800 11.5px var(--mono);
+padding: 7px 11px;
+border-radius: 8px;
+border: 1px solid rgba(255,255,255,0.2);
+cursor: pointer;
+transition: transform 0.08s, box-shadow 0.12s;
+color: #FFF;
+}
+.fx-pad:active, .fx-pad.fx-active {
+transform: scale(0.96);
+box-shadow: 0 0 18px currentColor;
+border-color: #FFF;
+}
+.studio-tabs {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+background: var(--panel);
+padding: 6px 10px;
+border-radius: 12px;
+border: 1px solid var(--line);
+}
+.studio-tab-btn {
+flex: 1;
+min-width: 155px;
+padding: 8px 10px;
+border-radius: 8px;
+font: 800 12px var(--font);
+text-align: center;
+border: 1px solid var(--line);
+background: rgba(255,255,255,0.03);
+color: var(--mute);
+cursor: pointer;
+}
+.studio-tab-btn[aria-selected="true"] {
+background: var(--accent);
+color: #090C12;
+border-color: #FFF;
+box-shadow: 0 0 14px rgba(212,175,55,0.35);
+}
+.tab-pane {
+display: none;
+background: var(--panel);
+border: 1px solid var(--line);
+border-radius: 14px;
+padding: 12px;
+}
+.tab-pane.active-pane {
+display: block;
+}
+.pane-grid-2 {
+display: grid;
+grid-template-columns: 1fr;
+gap: 12px;
+}
+@media(min-width: 860px) {
+.pane-grid-2 { grid-template-columns: 1.15fr 1fr; }
+}
+.pane-grid-3 {
+display: grid;
+grid-template-columns: 1fr;
+gap: 10px;
+}
+@media(min-width: 860px) {
+.pane-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+.geo-matrix-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+gap: 6px;
+max-height: 330px;
+overflow-y: auto;
+padding: 4px;
+}
+.geo-node-btn {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+padding: 6px 8px;
+border-radius: 8px;
+background: #0C1018;
+border: 2px solid var(--fc, #10B981);
+font: 700 10.5px var(--mono);
+min-height: 58px;
+cursor: pointer;
+position: relative;
+}
+.geo-node-btn.node-off {
+opacity: 0.34;
+border-style: dashed;
+filter: grayscale(0.7);
+}
+.geo-node-btn.node-sel {
+outline: 2px solid #FFF;
+outline-offset: 2px;
+}
+.xyz-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+font: 600 11.5px var(--mono);
+color: var(--mute);
+margin-bottom: 5px;
+}
+.xyz-row input[type=range] { flex: 1; }
+.xyz-row b { min-width: 44px; text-align: right; color: var(--text); }
+.cue-btn {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+padding: 7px 9px;
+border-radius: 8px;
+border-left: 4px solid var(--cc, var(--accent));
+background: rgba(255,255,255,0.04);
+font: 700 11px var(--mono);
+min-height: 46px;
+cursor: pointer;
+}
+.cue-btn.active-cue {
+background: rgba(212,175,55,0.2);
+border-color: #FFF;
+}
+body.fs-stage header, body.fs-stage #sharedCustPanel, body.fs-stage .studio-tabs, body.fs-stage .tab-pane { display: none !important; }
+body.fs-stage #shineCanvas { height: 84dvh !important; max-height: 84dvh !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="bar" style="justify-content:space-between">
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+<a href="https://forefronthawk.com" class="brand" style="text-decoration:none;color:var(--text)">🦅 Forefront<i>Hawk</i></a>
+<span class="chip">HawkShine 3D DJ Light Show, Laser & Pyro Studio</span>
+<nav class="seg" id="suiteNavSeg" aria-label="ForefrontHawk Subdomain Navigation">
+<a href="https://chroma.forefronthawk.com" data-sub="https://chroma.forefronthawk.com" class="sub-link nav-pill" >🎹 Chroma</a>
+<a href="https://draw.forefronthawk.com" data-sub="https://draw.forefronthawk.com" class="sub-link nav-pill" >💡 HawkDraw</a>
+<a href="https://shine.forefronthawk.com" data-sub="https://shine.forefronthawk.com" class="sub-link nav-pill" aria-current="page">⚡ HawkShine</a>
+<a href="https://rgb.forefronthawk.com" data-sub="https://rgb.forefronthawk.com" class="sub-link nav-pill" >🎞️ HawkRGB</a>
+<a href="https://calls.forefronthawk.com" data-sub="https://calls.forefronthawk.com" class="sub-link nav-pill" >🎙️ HawkCalls</a>
+</nav>
+</div>
+<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+<span id="chromaLiveSwatch" class="swatch-pill" style="background:#10B981;color:#080B10" title="Active Ecosystem Color">#10B981 (GRN)</span>
+<input id="mobilePasteColorIn" type="text" placeholder="Paste #HEX" value="#10B981" style="width:88px;font:700 11.5px var(--mono);text-align:center" title="Long-press here on your phone to Paste any color from another tab, or type a Hex code!">
+<button id="pasteFromClipBtn" type="button" class="chip" style="cursor:pointer;border-color:var(--accent);color:var(--accent);font-weight:700" title="1-Tap Read Color from Phone/OS Clipboard">📋 Paste Color</button>
+<button id="openChromaPopupBtn" type="button" class="chip" style="cursor:pointer" title="Open chroma.forefronthawk.com in a linked companion window">🪟 Pair Chroma</button>
+<button id="toggleSharedCustBtn" type="button">🛠️ UI &amp; Skin</button>
+</div>
+</header>
+<section id="sharedCustPanel" class="bar" hidden>
+<div class="subcard">
+<span class="subhead">Shared forefronthawk.com UI (Travels Across All 5 Sites)</span>
+<label>🎛️ Overlay <select id="sharedOverlaySel"></select></label>
+<label>UI Theme
+<select id="sharedThemeSel">
+<option value="dark">Obsidian Dark</option>
+<option value="light">Studio Daylight</option>
+<option value="matrix">Matrix Digital Code</option>
+<option value="midnight">Midnight OLED</option>
+<option value="cyberpunk">Cyberpunk Neon</option>
+<option value="emerald">Emerald Matrix</option>
+<option value="crimson">Crimson Forged</option>
+<option value="nord">Nordic Frost</option>
+<option value="solarlight">Solarized Light</option>
+<option value="solardark">Solarized Dark</option>
+<option value="mocha">Catppuccin Mocha</option>
+<option value="contrast">High-Contrast Pro</option>
+<option value="custom_live">★ Custom Colors</option>
+</select>
+</label>
+<label>Font
+<select id="sharedFontSel">
+<option value="system">System Sans</option>
+<option value="calibri">Calibri</option>
+<option value="arial">Arial</option>
+<option value="inter">Inter Studio</option>
+<option value="serif">Serif</option>
+<option value="mono">JetBrains Mono</option>
+<option value="space">Space Grotesk</option>
+<option value="orbitron">Orbitron Cyber</option>
+<option value="pixel">8-Bit Pixel</option>
+</select>
+</label>
+<label>BG <input type="color" id="cBgIn" value="#090B10"></label>
+<label>Panel <input type="color" id="cPanelIn" value="#121620"></label>
+<label>Text <input type="color" id="cTextIn" value="#F8FAFC"></label>
+</div>
+</section>
+<section class="hero-stage-card">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px">
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+<button id="playShowBtn" type="button" style="background:#059669;color:#fff;font-weight:800;padding:5px 12px">▶ Show Running</button>
+<div class="seg" id="camViewSeg" title="3D Stage Camera Viewpoint">
+<button type="button" data-cam="persp" aria-pressed="true">🎥 3D Arena</button>
+<button type="button" data-cam="top" aria-pressed="false">📐 Top (X–Z)</button>
+<button type="button" data-cam="side" aria-pressed="false">📏 Side (Y–Z)</button>
+<button type="button" data-cam="quad" aria-pressed="false">⊞ Quad 3D CAD</button>
+</div>
+<select id="quickRigPresetSel" style="font-weight:800;border-color:var(--accent)" title="Instant DJ Equipment Rig Profile">
+<option value="festival" selected>🏟️ Rig: Festival Mainstage (52 Fixtures + Pyro + 3D Grid)</option>
+<option value="cube3d">🧊 Rig: 3D Warehouse Cube Matrix (3x3x3 Grid + 6 Lasers)</option>
+<option value="club">🎧 Rig: Club Booth (8 Beams + 2 Lasers + 4 Strobes + Haze)</option>
+<option value="mobile">🚐 Rig: Mobile DJ Event (4 Moving Heads + 4 Wash Bars + 2 Sparkulars)</option>
+<option value="pyromax">🔥 Rig: Pyro &amp; Laser Arena (8 Lasers + 12 Flame/Spark/Cryo Jets)</option>
+</select>
+<span id="shineSongStatus" class="chip" style="color:#34D399">📡 Ready • Synced w/ HawkRGB</span>
+</div>
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+<label style="font:700 11.5px var(--mono)">BPM <input type="range" id="shineBpmRange" min="60" max="200" value="128" style="width:70px"><b id="bpmValLbl" class="chip">128</b></label>
+<button id="shineFsBtn" type="button" style="border-color:var(--accent);color:var(--accent);font-weight:800">⛶ Full Stage</button>
+<button id="exitStageFsBtn" type="button" style="background:#7F1D1D;color:#fff;font-weight:800" hidden>✕ Exit Full Stage</button>
+</div>
+</div>
+<canvas id="shineCanvas" width="1120" height="540"></canvas>
+<div class="fx-trigger-bar">
+<span class="subhead" style="margin-right:4px">LIVE FX PADS:</span>
+<button type="button" id="padFlameBtn" class="fx-pad" style="background:linear-gradient(135deg,#DC2626,#EA580C)">🔥 FLAME JETS</button>
+<button type="button" id="padSparkBtn" class="fx-pad" style="background:linear-gradient(135deg,#CA8A04,#FACC15);color:#090C12">✨ SPARKULARS</button>
+<button type="button" id="padCryoBtn" class="fx-pad" style="background:linear-gradient(135deg,#0284C7,#38BDF8)">💨 CO2 CRYO BLAST</button>
+<button type="button" id="padPyroShellBtn" class="fx-pad" style="background:linear-gradient(135deg,#9333EA,#EC4899)">🎆 AERIAL PYRO</button>
+<button type="button" id="padSmokeBtn" class="fx-pad fx-active" style="background:linear-gradient(135deg,#334155,#64748B)">🌫️ SMOKE: ON</button>
+<button type="button" id="padStrobeBtn" class="fx-pad" style="background:linear-gradient(135deg,#475569,#94A3B8)">⚡ STROBE DROP</button>
+<button type="button" id="padBlackoutBtn" class="fx-pad" style="background:#111827;border-color:#EF4444;color:#FCA5A5">🌑 BLACKOUT</button>
+<div class="seg" id="laserGeoSeg" style="margin-left:auto" title="3D X/Y/Z ILDA Laser Pattern">
+<button type="button" data-g="fan" aria-pressed="true">📐 3D Fan</button>
+<button type="button" data-g="tunnel" aria-pressed="false">🌀 Z-Tunnel</button>
+<button type="button" data-g="lissajous" aria-pressed="false">♾️ Lissajous</button>
+<button type="button" data-g="cube" aria-pressed="false">🧊 3D Cube</button>
+<button type="button" data-g="helix" aria-pressed="false">🧬 DNA Helix</button>
+<button type="button" data-g="sky" aria-pressed="false">🌊 Liquid Sky</button>
+</div>
+</div>
+</section>
+<nav class="studio-tabs" role="tablist" aria-label="HawkShine Deep Customization Tabs">
+<button type="button" class="studio-tab-btn" role="tab" data-tab="tabGeo" aria-selected="true">🗺️ 1. Light &amp; Laser Geography (On/Off &amp; 3D Grid)</button>
+<button type="button" class="studio-tab-btn" role="tab" data-tab="tabRig" aria-selected="false">🎛️ 2. DJ Equipment Rig &amp; HawkRGB Mapper</button>
+<button type="button" class="studio-tab-btn" role="tab" data-tab="tabLaser3D" aria-selected="false">⚡ 3. 3D X/Y/Z Laser Galvo &amp; Aiming</button>
+<button type="button" class="studio-tab-btn" role="tab" data-tab="tabPyro" aria-selected="false">🔥 4. Smoke, Cryo &amp; Pyrotechnics</button>
+<button type="button" class="studio-tab-btn" role="tab" data-tab="tabCues" aria-selected="false">🎨 5. Basic Color &amp; Show Cues</button>
+</nav>
+<section id="tabGeo" class="tab-pane active-pane">
+<div class="pane-grid-2">
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px">
+<span class="subhead">Interactive Fixture Geography Switchboard (Click to Select • Double-Click or Toggle ON/OFF)</span>
+<div style="display:flex;gap:5px;flex-wrap:wrap">
+<button type="button" id="geoAllOnBtn" class="chip" style="cursor:pointer;color:#34D399;border-color:#34D399">✓ All Lights ON</button>
+<button type="button" id="geoInvertBtn" class="chip" style="cursor:pointer">⇄ Invert ON/OFF</button>
+<button type="button" id="geoOddEvenBtn" class="chip" style="cursor:pointer"> alternating Odd/Even</button>
+<button type="button" id="geoToggleSelPowerBtn" class="chip" style="cursor:pointer;background:var(--accent);color:#090C12;font-weight:800">⚡ Toggle Selected ON/OFF</button>
+</div>
+</div>
+<div class="seg" id="geoFilterSeg">
+<button type="button" data-gf="all" aria-pressed="true">All Fixtures</button>
+<button type="button" data-gf="beam" aria-pressed="false">💡 Moving Beams</button>
+<button type="button" data-gf="laser" aria-pressed="false">⚡ 3D Lasers</button>
+<button type="button" data-gf="grid3d" aria-pressed="false">🧊 3D Grid Nodes</button>
+<button type="button" data-gf="wash" aria-pressed="false">🌈 LED Wash</button>
+<button type="button" data-gf="strobe" aria-pressed="false">⚡ Strobes</button>
+<button type="button" data-gf="pyro" aria-pressed="false">🔥 Pyro/Cryo</button>
+</div>
+<div id="fixtureGrid" class="geo-matrix-grid"></div>
+</div>
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<span class="subhead">3D Spatial Grid Formation Generator (X × Y × Z Architecture)</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<button type="button" class="chip geo-form-btn" data-form="cube" style="cursor:pointer;border-color:var(--accent)">🧊 3D Cube Matrix (X×Y×Z)</button>
+<button type="button" class="chip geo-form-btn" data-form="arena" style="cursor:pointer">🏟️ Curved Arena Horseshoe</button>
+<button type="button" class="chip geo-form-btn" data-form="pyramid" style="cursor:pointer">🔺 3D Pyramid Truss</button>
+<button type="button" class="chip geo-form-btn" data-form="tunnel" style="cursor:pointer">🚇 Depth Corridor (Z-Rows)</button>
+<button type="button" class="chip geo-form-btn" data-form="vwing" style="cursor:pointer">🦅 V-Wing Festival Chevron</button>
+</div>
+<div class="xyz-row"><span>3D Grid X-Width Span</span><input type="range" id="gridSpanX" min="40" max="140" value="105"><b id="gridSpanXVal">105%</b></div>
+<div class="xyz-row"><span>3D Grid Y-Height Tiers</span><input type="range" id="gridSpanY" min="30" max="120" value="85"><b id="gridSpanYVal">85%</b></div>
+<div class="xyz-row"><span>3D Grid Z-Depth Layers</span><input type="range" id="gridSpanZ" min="30" max="140" value="95"><b id="gridSpanZVal">95%</b></div>
+<hr style="border:none;border-top:1px solid var(--line);margin:4px 0">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span class="subhead" id="selFixLabel">Selected Fixture: ILDA Laser 1</span>
+<input type="color" id="fixColorPicker" value="#D4AF37" title="Paint Selected Fixture">
+</div>
+<div class="xyz-row"><span>X Pos (Left/Right)</span><input type="range" id="fixPosX" min="-110" max="110" value="-75"><b id="fixPosXVal">-75</b></div>
+<div class="xyz-row"><span>Y Pos (Floor/Ceiling)</span><input type="range" id="fixPosY" min="-70" max="100" value="78"><b id="fixPosYVal">+78</b></div>
+<div class="xyz-row"><span>Z Pos (Front/Back Depth)</span><input type="range" id="fixPosZ" min="-90" max="100" value="35"><b id="fixPosZVal">+35</b></div>
+<div class="xyz-row"><span>Yaw Pan (°)</span><input type="range" id="fixPan" min="-90" max="90" value="0"><b id="fixPanVal">0°</b></div>
+<div class="xyz-row"><span>Pitch Tilt (°)</span><input type="range" id="fixTilt" min="-90" max="90" value="-18"><b id="fixTiltVal">-18°</b></div>
+</div>
+</div>
+</section>
+<section id="tabRig" class="tab-pane">
+<div class="pane-grid-2">
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:6px">
+<span class="subhead">Custom DJ Equipment Counts (Adapt Show to Any Venue's Gear)</span>
+<div class="xyz-row"><span>💡 Moving Head Beams</span><input type="range" id="cntBeams" min="0" max="24" value="10"><b id="cntBeamsVal">10</b></div>
+<div class="xyz-row"><span>⚡ 3D ILDA Laser Units</span><input type="range" id="cntLasers" min="0" max="12" value="6"><b id="cntLasersVal">6</b></div>
+<div class="xyz-row"><span>🧊 3D Ceiling Grid Lights</span><input type="range" id="cntGrid3D" min="0" max="36" value="18"><b id="cntGrid3DVal">18</b></div>
+<div class="xyz-row"><span>🌈 LED Wash Flood Bars</span><input type="range" id="cntWash" min="0" max="16" value="6"><b id="cntWashVal">6</b></div>
+<div class="xyz-row"><span>⚡ Strobe / Blinder Pods</span><input type="range" id="cntStrobes" min="0" max="16" value="6"><b id="cntStrobesVal">6</b></div>
+<div class="xyz-row"><span>🔥 Pyro Flame &amp; Spark Jets</span><input type="range" id="cntPyro" min="0" max="12" value="6"><b id="cntPyroVal">6</b></div>
+<button type="button" id="rebuildCustomRigBtn" style="background:var(--accent);color:#090C12;font-weight:800;margin-top:4px">🛠️ Rebuild 3D Stage With Custom Fixture Counts</button>
+</div>
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<span class="subhead">📡 HawkRGB Song Color Script Receiver &amp; Hardware Auto-Mapper</span>
+<p style="font-size:11.5px;color:var(--mute);margin:0">
+Load a song color script created in <b>HawkRGB</b> (or <b>HawkCalls</b>) and choose how its colors map onto your current DJ equipment rig—no matter how many lights the venue has:
+</p>
+<div class="xyz-row">
+<span>Saved DJ Song Script</span>
+<select id="savedDjScriptSel" style="flex:1">
+<option value="live_rgb">📡 Live Broadcast from HawkRGB Tab</option>
+<option value="preset_cyber">🎵 Demo Script: Cyberpunk Festival Drop (128 BPM)</option>
+<option value="preset_gold">🎵 Demo Script: ForefrontHawk Sovereign Gold (124 BPM)</option>
+<option value="preset_rave">🎵 Demo Script: Warehouse Acid Laser Rave (140 BPM)</option>
+</select>
+<button type="button" id="loadSavedDjScriptBtn" class="chip" style="cursor:pointer;border-color:#34D399;color:#34D399;font-weight:800">▶ Load Script</button>
+</div>
+<div class="xyz-row">
+<span>Rig Mapping Mode</span>
+<select id="rigMapModeSel" style="flex:1">
+<option value="role" selected>Role-Based (RGB Row 1→Beams, Row 2→Lasers, Row 3→3D Grid, Row 4→Pyro)</option>
+<option value="mirror">Symmetrical Center-Out Mirror (Adapts to Any Fixture Count)</option>
+<option value="sweepX">Left-to-Right Stage Width Sweep (X-Axis Interpolation)</option>
+<option value="depthZ">Front-to-Back 3D Depth Wave (Z-Axis Tiers)</option>
+<option value="heightY">Floor-to-Ceiling Vertical Stack (Y-Axis Tiers)</option>
+</select>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto">
+<button id="shineUploadSongBtn" type="button" style="flex:1;background:#7C3AED;color:#fff;font-weight:700">📂 Import RGB/Calls (.csv)</button>
+<input type="file" id="shineSongFileIn" accept=".csv,text/csv" hidden>
+<button id="shineExportShowBtn" type="button" style="flex:1;background:#0284C7;color:#fff;font-weight:700">📤 Export Show to RGB (.csv)</button>
+</div>
+</div>
+</div>
+</section>
+<section id="tabLaser3D" class="tab-pane">
+<div class="pane-grid-2">
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:6px">
+<span class="subhead">3D ILDA Laser Galvo Rotation &amp; Depth Matrix (X, Y, Z)</span>
+<div class="xyz-row"><span>Pitch X-Rot (°)</span><input type="range" id="lasRotX" min="-180" max="180" value="22"><b id="lasRotXVal">22°</b></div>
+<div class="xyz-row"><span>Yaw Y-Rot (°)</span><input type="range" id="lasRotY" min="-180" max="180" value="0"><b id="lasRotYVal">0°</b></div>
+<div class="xyz-row"><span>Roll Z-Rot (°)</span><input type="range" id="lasRotZ" min="-180" max="180" value="15"><b id="lasRotZVal">15°</b></div>
+<div class="xyz-row"><span>Z-Depth Tunnel Spread</span><input type="range" id="lasDepthZ" min="20" max="220" value="125"><b id="lasDepthZVal">125%</b></div>
+<div class="xyz-row"><span>Beam Aperture Width</span><input type="range" id="lasDiv" min="20" max="180" value="95"><b id="lasDivVal">95%</b></div>
+<div class="xyz-row"><span>Harmonic Ratio X:Y:Z</span><input type="range" id="lasHarmonic" min="1" max="8" value="3"><b id="lasHarmVal">3:4:2</b></div>
+<div class="xyz-row"><span>3D Auto-Spin Velocity</span><input type="range" id="lasSpinSpeed" min="0" max="100" value="55"><b id="lasSpinVal">55%</b></div>
+</div>
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<span class="subhead">3D Beam Movement &amp; Galvo Scan Macros</span>
+<div class="xyz-row"><span>Moving Head Sweep Range</span><input type="range" id="beamSweepAmp" min="0" max="80" value="38"><b id="beamSweepVal">38°</b></div>
+<div class="xyz-row"><span>Beam Cone Thickness</span><input type="range" id="beamWidthRange" min="15" max="100" value="58"><b id="beamWidthVal">58%</b></div>
+<div class="xyz-row"><span>Laser Ray Density</span><input type="range" id="laserRayDensity" min="4" max="24" value="14"><b id="laserRayVal">14 rays</b></div>
+<div class="xyz-row"><span>Floor Hot-Spot Reflection</span><input type="range" id="floorReflectRange" min="0" max="100" value="80"><b id="floorReflectVal">80%</b></div>
+</div>
+</div>
+</section>
+<section id="tabPyro" class="tab-pane">
+<div class="pane-grid-2">
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:6px">
+<span class="subhead">🔥 Pyrotechnics, Flame Jets &amp; Cold Sparkulars</span>
+<div class="xyz-row">
+<span>Flame Chemistry / Color</span>
+<select id="flameColorModeSel" style="flex:1">
+<option value="propane" selected>🔥 Classic Propane Gold-Orange Fire</option>
+<option value="rgb">🌈 Sync Flame Color to Fixture RGB</option>
+<option value="emerald">🧪 Copper Sulfate Emerald Green Fire</option>
+<option value="crimson">🧨 Strontium Nitrate Crimson Red Fire</option>
+<option value="cobalt">⚡ Potassium / Plasma Blue-Violet Fire</option>
+</select>
+</div>
+<div class="xyz-row"><span>Flame Column Height</span><input type="range" id="flameHeightRange" min="30" max="160" value="105"><b id="flameHeightVal">105%</b></div>
+<div class="xyz-row"><span>Sparkular Fountain Rate</span><input type="range" id="sparkRateRange" min="20" max="160" value="100"><b id="sparkRateVal">100%</b></div>
+<div class="xyz-row"><span>Auto-Pyro on Beat Drops</span>
+<select id="autoPyroModeSel" style="flex:1">
+<option value="drops" selected>🔥 Auto-Fire Pyro &amp; Sparks on Phrase Drops</option>
+<option value="always">🌋 Continuous Festival Inferno (Always Firing)</option>
+<option value="manual">🎛️ Manual Pad Trigger / RGB Script Only</option>
+</select>
+</div>
+</div>
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:6px">
+<span class="subhead">🌫️ Atmospheric Smoke, Low-Lying Fog &amp; CO2 Cryo</span>
+<div class="xyz-row"><span>Haze &amp; Beam Bloom</span><input type="range" id="shineHazeRange" min="15" max="100" value="85"><b id="hazeValLbl">85%</b></div>
+<div class="xyz-row"><span>Rolling Smoke Plumes</span><input type="range" id="smokePlumeRange" min="0" max="100" value="75"><b id="smokePlumeVal">75%</b></div>
+<div class="xyz-row"><span>Low-Lying Stage Floor Fog</span><input type="range" id="floorFogRange" min="0" max="100" value="70"><b id="floorFogVal">70%</b></div>
+<div class="xyz-row"><span>Stage Wind Drift Speed</span><input type="range" id="windDriftRange" min="-50" max="50" value="15"><b id="windDriftVal">+15</b></div>
+</div>
+</div>
+</section>
+<section id="tabCues" class="tab-pane">
+<div class="pane-grid-2">
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<span class="subhead">Basic General Use: Quick Stage Color &amp; Group Painter</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+<select id="fixtureGroupSel" style="flex:1">
+<option value="all" selected>Target: Entire Stage Rig</option>
+<option value="beam">Target: All Moving Head Beams</option>
+<option value="laser">Target: All 3D ILDA Lasers</option>
+<option value="grid3d">Target: All 3D Ceiling Grid Lights</option>
+<option value="wash">Target: All LED Wash Bars</option>
+<option value="pyro">Target: All Pyro / Strobe Units</option>
+<option value="sel">Target: Currently Selected Fixture Only</option>
+</select>
+<input type="color" id="quickGroupColorIn" value="#10B981">
+<button id="assignChromaToGroupBtn" type="button" style="border-color:var(--accent);color:var(--accent);font-weight:800">🎨 Paint Target w/ Active Color</button>
+</div>
+<div style="display:flex;gap:5px;flex-wrap:wrap">
+<button type="button" class="chip quick-pal-btn" data-p="#D4AF37,#10B981,#38BDF8,#F43F5E" style="cursor:pointer">🦅 Sovereign Gold &amp; Emerald</button>
+<button type="button" class="chip quick-pal-btn" data-p="#00F5D4,#FF007F,#7C3AED,#38BDF8" style="cursor:pointer">⚡ Cyberpunk Neon</button>
+<button type="button" class="chip quick-pal-btn" data-p="#EF4444,#F97316,#FACC15,#FFFFFF" style="cursor:pointer">🔥 Inferno Red/Gold</button>
+<button type="button" class="chip quick-pal-btn" data-p="#00FF41,#10B981,#06B6D4,#A7F3D0" style="cursor:pointer">💻 Matrix Digital Green</button>
+<button type="button" class="chip quick-pal-btn" data-p="#3B82F6,#6366F1,#EC4899,#F43F5E" style="cursor:pointer">🌌 Synthwave Sunset</button>
+</div>
+</div>
+<div class="subcard" style="flex-direction:column;align-items:stretch;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span class="subhead">8 Instant Show Cues (Colors + 3D Lasers + Pyro)</span>
+<div style="display:flex;gap:5px">
+<button id="saveCueBtn" type="button" class="chip" style="cursor:pointer;border-color:var(--accent);color:var(--accent)">💾 Save Current to Cue</button>
+<button id="autoCycleCuesBtn" type="button" class="chip" style="cursor:pointer">🔁 Auto-Cycle: Off</button>
+</div>
+</div>
+<div id="cueBankGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px"></div>
+</div>
+</div>
+</section>
+</div>
+<script>
+var FONTS={
+system:'system-ui,-apple-system,"Segoe UI",Roboto,sans-serif',
+calibri:'Calibri,"Segoe UI",Candara,sans-serif',
+arial:'Arial,"Helvetica Neue",Helvetica,sans-serif',
+inter:'"Inter",system-ui,sans-serif',
+serif:'Georgia,"Times New Roman",Times,serif',
+mono:'"JetBrains Mono",Consolas,ui-monospace,monospace',
+space:'"Space Grotesk",system-ui,sans-serif',
+orbitron:'"Orbitron",system-ui,sans-serif',
+pixel:'"Press Start 2P",ui-monospace,monospace'
+};
+var ACC={sky:"#38BDF8",gold:"#D4AF37",green:"#34D399",amber:"#FBBF24",rose:"#FB7185",violet:"#A78BFA"};
+var OVERLAY_LIST=[
+["ui-sophisticated","★ Sophisticated (ForefrontHawk)"],
+["ui-tech","★ Tech (CAD Telemetry)"],
+["ui-futuristic","★ Futuristic (Holo-Glass)"],
+["none","0. Classic UI"],["mech-ibm","1. IBM Model M"],["mech-c64","2. Commodore 64"],
+["mech-cyber","3. Cyber Neon"],["mech-typewriter","4. Typewriter"],["mech-arcade","5. Arcade Sanwa"],
+["plug-vst","6. VST Rack"],["plug-eurorack","7. Eurorack"],["plug-mpc","8. Akai MPC"],
+["plug-dmx","9. GrandMA DMX"],["plug-davinci","10. DaVinci Panel"],["app-winamp","11. Winamp 2.x"],
+["app-ps3","12. Photoshop 3"],["app-lotus","13. Lotus 1-2-3"],["app-soundforge","14. FastTracker"],
+["app-hypercard","15. HyperCard"],["os-win95","16. Windows 95"],["os-winxp","17. Windows XP"],
+["os-mac9","18. Mac OS 9"],["os-amiga","19. AmigaOS 1.3"],["os-pipboy","20. CRT Pip-Boy"]
+];
+var UI_STATE={
+mode:"dark",overlay:"ui-sophisticated",font:"system",accent:"gold",
+cBg:"#090B10",cPanel:"#121620",cText:"#F8FAFC",cPlate:"#181D2A",
+activeColor:"#10B981",activeLabel:"GRN"
+};
+var suiteChan=null,chromaChan=null;
+try{
+if(typeof BroadcastChannel!=="undefined"){
+suiteChan=new BroadcastChannel("forefronthawk_suite_bus");
+chromaChan=new BroadcastChannel("hawkchroma_2x10_bus");
+}
+}catch(e){}
+var chromaPopupWin=null;
+function readRootDomainCookie(){
+try{
+var m=document.cookie.match(/(?:^|;\s*)ffh_ui=([^;]+)/);
+if(m&&m[1])return JSON.parse(decodeURIComponent(m[1]));
+}catch(e){}
+return null;
+}
+function writeRootDomainCookie(obj){
+try{
+var val=encodeURIComponent(JSON.stringify(obj));
+document.cookie="ffh_ui="+val+"; domain=.forefronthawk.com; path=/; max-age=31536000; SameSite=Lax";
+document.cookie="ffh_ui="+val+"; path=/; max-age=31536000; SameSite=Lax";
+}catch(e){}
+}
+function readUrlHashState(){
+try{
+if(location.hash&&location.hash.indexOf("ffh=")>-1){
+var part=location.hash.split("ffh=")[1].split("&")[0];
+return JSON.parse(decodeURIComponent(part));
+}
+}catch(e){}
+return null;
+}
+function updateSubdomainBannerLinks(){
+try{
+writeRootDomainCookie(UI_STATE);
+document.querySelectorAll("a.sub-link").forEach(function(a){
+var base=a.dataset.sub||a.getAttribute("href").split("#")[0];
+a.href=base;
+a.onclick=function(){writeRootDomainCookie(UI_STATE)};
+});
+}catch(e){}
+}
+function loadSharedUi(){
+try{
+var fromHash=readUrlHashState();
+var fromCookie=readRootDomainCookie();
+var fromLs=JSON.parse(localStorage.getItem("forefronthawk_shared_ui")||localStorage.getItem("hawkchroma_v4")||"null");
+var sv=fromHash||fromCookie||fromLs;
+if(sv){
+if(sv.mode)UI_STATE.mode=sv.mode;
+if(sv.overlay)UI_STATE.overlay=sv.overlay;
+if(sv.font)UI_STATE.font=sv.font;
+if(sv.accent)UI_STATE.accent=sv.accent;
+if(sv.cBg)UI_STATE.cBg=sv.cBg;
+if(sv.cPanel)UI_STATE.cPanel=sv.cPanel;
+if(sv.cText)UI_STATE.cText=sv.cText;
+if(sv.cPlate)UI_STATE.cPlate=sv.cPlate;
+if(sv.activeColor||sv.shown||sv.hex)UI_STATE.activeColor=sv.activeColor||sv.shown||sv.hex;
+if(fromHash)writeRootDomainCookie(UI_STATE);
+}
+}catch(e){}
+applySharedUiToDom();
+updateSubdomainBannerLinks();
+}
+function saveAndBroadcastUi(broadcast){
+try{
+localStorage.setItem("forefronthawk_shared_ui",JSON.stringify(UI_STATE));
+writeRootDomainCookie(UI_STATE);
+updateSubdomainBannerLinks();
+var hc=JSON.parse(localStorage.getItem("hawkchroma_v4")||"{}");
+hc.mode=UI_STATE.mode;hc.overlay=UI_STATE.overlay;hc.font=UI_STATE.font;
+hc.cBg=UI_STATE.cBg;hc.cPanel=UI_STATE.cPanel;hc.cText=UI_STATE.cText;hc.cPlate=UI_STATE.cPlate;
+hc.shown=UI_STATE.activeColor;hc.hex=UI_STATE.activeColor;
+localStorage.setItem("hawkchroma_v4",JSON.stringify(hc));
+}catch(e){}
+applySharedUiToDom();
+if(broadcast){
+if(suiteChan){try{suiteChan.postMessage({type:"FFH_UI_SYNC",ui:UI_STATE})}catch(e){}}
+if(window.opener){try{window.opener.postMessage({type:"FFH_UI_SYNC",ui:UI_STATE},"*")}catch(e){}}
+if(chromaPopupWin&&!chromaPopupWin.closed){try{chromaPopupWin.postMessage({type:"FFH_UI_SYNC",ui:UI_STATE},"*")}catch(e){}}
+}
+}
+function applySharedUiToDom(){
+var r=document.documentElement;
+r.setAttribute("data-theme",UI_STATE.mode||"dark");
+if(UI_STATE.overlay&&UI_STATE.overlay!=="none")r.setAttribute("data-ov",UI_STATE.overlay);
+else r.removeAttribute("data-ov");
+r.style.setProperty("--font",FONTS[UI_STATE.font]||FONTS.system);
+r.style.setProperty("--accent",ACC[UI_STATE.accent]||"#D4AF37");
+if(UI_STATE.mode==="custom_live"){
+r.style.setProperty("--bg",UI_STATE.cBg);
+r.style.setProperty("--panel",UI_STATE.cPanel);
+r.style.setProperty("--text",UI_STATE.cText);
+r.style.setProperty("--plate",UI_STATE.cPlate);
+}else{
+r.style.removeProperty("--bg");r.style.removeProperty("--panel");
+r.style.removeProperty("--text");r.style.removeProperty("--plate");
+}
+r.style.setProperty("--active-c",UI_STATE.activeColor);
+var sw=document.getElementById("chromaLiveSwatch");
+if(sw){
+sw.style.background=UI_STATE.activeColor;
+sw.textContent=UI_STATE.activeColor+" ("+UI_STATE.activeLabel+")";
+}
+if(document.getElementById("sharedOverlaySel"))document.getElementById("sharedOverlaySel").value=UI_STATE.overlay;
+if(document.getElementById("sharedThemeSel"))document.getElementById("sharedThemeSel").value=UI_STATE.mode;
+if(document.getElementById("sharedFontSel"))document.getElementById("sharedFontSel").value=UI_STATE.font;
+if(typeof onChromaColorReceived==="function")onChromaColorReceived(UI_STATE.activeColor,UI_STATE.activeLabel);
+}
+function initSharedCustomizerBar(){
+var popBtn=document.getElementById("openChromaPopupBtn");
+if(popBtn){
+popBtn.onclick=function(){
+var payload=encodeURIComponent(JSON.stringify(UI_STATE));
+writeRootDomainCookie(UI_STATE);
+chromaPopupWin=window.open("https://chroma.forefronthawk.com","HawkChromaCompanion","width=520,height=760");
+};
+}
+window.addEventListener("message",function(e){
+if(!e.data)return;
+if(e.data.type==="FFH_UI_SYNC"&&e.data.ui){
+Object.assign(UI_STATE,e.data.ui);
+saveAndBroadcastUi(false);
+}else if(e.data.hex){
+UI_STATE.activeColor=e.data.hex.toUpperCase();
+UI_STATE.activeLabel=e.data.label||"CHROMA";
+saveAndBroadcastUi(false);
+}
+});
+var lastCookieJson="";
+setInterval(function(){
+var ck=readRootDomainCookie();
+if(ck){
+var j=JSON.stringify(ck);
+if(j!==lastCookieJson){
+lastCookieJson=j;
+Object.assign(UI_STATE,ck);
+applySharedUiToDom();
+}
+}
+},800);
+var ovSel=document.getElementById("sharedOverlaySel");
+if(ovSel&&!ovSel.options.length){
+OVERLAY_LIST.forEach(function(o){
+var op=document.createElement("option");op.value=o[0];op.textContent=o[1];ovSel.appendChild(op);
+});
+ovSel.onchange=function(){UI_STATE.overlay=this.value;saveAndBroadcastUi(true)};
+}
+var thSel=document.getElementById("sharedThemeSel");
+if(thSel){thSel.onchange=function(){UI_STATE.mode=this.value;saveAndBroadcastUi(true)}}
+var fnSel=document.getElementById("sharedFontSel");
+if(fnSel){fnSel.onchange=function(){UI_STATE.font=this.value;saveAndBroadcastUi(true)}}
+var custBtn=document.getElementById("toggleSharedCustBtn");
+if(custBtn){
+custBtn.onclick=function(){
+var p=document.getElementById("sharedCustPanel");
+if(p)p.hidden=!p.hidden;
+};
+}
+["cBgIn","cPanelIn","cTextIn"].forEach(function(id){
+var el=document.getElementById(id);
+if(el)el.oninput=function(){
+UI_STATE.cBg=document.getElementById("cBgIn").value;
+UI_STATE.cPanel=document.getElementById("cPanelIn").value;
+UI_STATE.cText=document.getElementById("cTextIn").value;
+UI_STATE.mode="custom_live";
+saveAndBroadcastUi(true);
+};
+});
+}
+window.addEventListener("focus",function(){if(typeof loadSharedUi==="function")loadSharedUi()});
+document.addEventListener("visibilitychange",function(){if(!document.hidden&&typeof loadSharedUi==="function")loadSharedUi()});
+window.addEventListener("storage",function(e){
+if(e.key==="forefronthawk_shared_ui"||e.key==="hawkchroma_v4")loadSharedUi();
+});
+if(suiteChan){
+suiteChan.onmessage=function(e){
+if(e.data&&e.data.ui){
+Object.assign(UI_STATE,e.data.ui);
+applySharedUiToDom();
+}
+};
+}
+if(chromaChan){
+chromaChan.onmessage=function(e){
+if(e.data&&e.data.hex){
+UI_STATE.activeColor=e.data.hex.toUpperCase();
+UI_STATE.activeLabel=e.data.label||"CHROMA";
+saveAndBroadcastUi(false);
+}
+};
+}
+var stopCycleIdx = 0;
+var fixtures = [];
+var selectedFixIdx = 0;
+var geoFilter = "all";
+var renderFixtureButtonsFn = function(){};
+function applyColorToTargetFixtures(hex){
+if(!hex || !fixtures.length) return;
+var fp = document.getElementById("fixColorPicker");
+if(fp) fp.value = hex;
+var qp = document.getElementById("quickGroupColorIn");
+if(qp) qp.value = hex;
+var selEl = document.getElementById("fixtureGroupSel");
+var mode = selEl ? selEl.value : "sel";
+if(mode === "sel"){
+if(fixtures[selectedFixIdx]) fixtures[selectedFixIdx].color = hex;
+}else if(mode === "all"){
+fixtures.forEach(function(f, i){ if(i % 2 === 0) f.color = hex; });
+}else{
+fixtures.filter(function(f){ return f.type === mode; }).forEach(function(f){ f.color = hex; });
+}
+renderFixtureButtonsFn();
+}
+function onChromaColorReceived(hex, label){
+var fp = document.getElementById("fixColorPicker");
+if(fp) fp.value = hex;
+var qp = document.getElementById("quickGroupColorIn");
+if(qp) qp.value = hex;
+if(fixtures.length && fixtures[selectedFixIdx]){
+fixtures[selectedFixIdx].color = hex;
+renderFixtureButtonsFn();
+}
+}
+(function(){
+var cv = document.getElementById("shineCanvas"), ctx = cv.getContext("2d");
+var camMode = "persp", geo = "fan", bpm = 128, haze = 0.85, strobe = false, blackout = false, playingShow = true, tick = 0;
+var camYaw = 0, camPitch = 14, draggingCam = false, lastMx = 0, lastMy = 0;
+var lasRotX = 22, lasRotY = 0, lasRotZ = 15, lasDepthZ = 1.25, lasDiv = 0.95, lasHarm = 3, lasSpin = 0.55;
+var beamSweepAmp = 38, beamWidthScale = 0.58, laserRayCount = 14, floorReflect = 0.80;
+var gridSpanX = 1.05, gridSpanY = 0.85, gridSpanZ = 0.95, currentFormation = "arena";
+var smokeEnabled = true, smokePlumeDensity = 0.75, floorFogDensity = 0.70, windDrift = 15;
+var flameActive = false, sparkActive = false, cryoActive = false;
+var flameColorMode = "propane", flameHeightScale = 1.05, sparkRateScale = 1.0, autoPyroMode = "drops";
+var smokeParticles = [], pyroParticles = [];
+for(var s=0; s<42; s++){
+smokeParticles.push({
+x: (Math.random() - 0.5) * 240,
+y: -68 + Math.random() * 95,
+z: (Math.random() - 0.5) * 180,
+r: 38 + Math.random() * 68,
+vx: (Math.random() - 0.5) * 0.35,
+vy: 0.05 + Math.random() * 0.12,
+alpha: 0.08 + Math.random() * 0.14
+});
+}
+function spawnPyroBurst(kind){
+var pyroUnits = fixtures.filter(function(f){ return f.on && f.type === "pyro"; });
+if(!pyroUnits.length){
+pyroUnits = [{x:-75,y:-68,z:-25,color:"#F97316"},{x:-25,y:-68,z:-25,color:"#FACC15"},{x:25,y:-68,z:-25,color:"#FACC15"},{x:75,y:-68,z:-25,color:"#F97316"}];
+}
+pyroUnits.forEach(function(u){
+if(kind === "flame"){
+for(var k=0; k<14; k++){
+pyroParticles.push({
+kind: "flame",
+x: u.x + (Math.random()-0.5)*5,
+y: u.y + 4,
+z: u.z + (Math.random()-0.5)*5,
+vx: (Math.random()-0.5)*0.9,
+vy: (3.2 + Math.random()*2.8) * flameHeightScale,
+vz: (Math.random()-0.5)*0.9,
+life: 1.0,
+decay: 0.032 + Math.random()*0.02,
+size: 10 + Math.random()*12,
+color: u.color
+});
+}
+}else if(kind === "spark"){
+var count = Math.round(18 * sparkRateScale);
+for(var s=0; s<count; s++){
+pyroParticles.push({
+kind: "spark",
+x: u.x + (Math.random()-0.5)*3,
+y: u.y + 2,
+z: u.z,
+vx: (Math.random()-0.5)*2.2,
+vy: 3.6 + Math.random()*3.8,
+vz: (Math.random()-0.5)*2.2,
+life: 1.0,
+decay: 0.022 + Math.random()*0.018,
+size: 2.2 + Math.random()*2.2,
+color: Math.random() > 0.3 ? "#FDE047" : "#FFFFFF"
+});
+}
+}else if(kind === "cryo"){
+for(var c=0; c<16; c++){
+pyroParticles.push({
+kind: "cryo",
+x: u.x + (Math.random()-0.5)*4,
+y: u.y + 4,
+z: u.z,
+vx: (Math.random()-0.5)*1.5,
+vy: 4.5 + Math.random()*3.5,
+vz: (Math.random()-0.5)*1.5,
+life: 1.0,
+decay: 0.028 + Math.random()*0.015,
+size: 12 + Math.random()*16,
+color: "#E0F2FE"
+});
+}
+}
+});
+if(kind === "shell"){
+var sx = (Math.random()-0.5)*130, sy = 35 + Math.random()*45, sz = -10 + (Math.random()-0.5)*60;
+var shellCols = ["#F43F5E","#38BDF8","#FACC15","#34D399","#A855F7","#FF007F"];
+var sc = shellCols[Math.floor(Math.random()*shellCols.length)];
+for(var p=0; p<56; p++){
+var theta = Math.random()*Math.PI*2, phi = Math.acos(2*Math.random()-1), spd = 1.6 + Math.random()*2.8;
+pyroParticles.push({
+kind: "shell",
+x: sx, y: sy, z: sz,
+vx: Math.sin(phi)*Math.cos(theta)*spd,
+vy: Math.sin(phi)*Math.sin(theta)*spd,
+vz: Math.cos(phi)*spd,
+life: 1.0,
+decay: 0.016 + Math.random()*0.012,
+size: 3.0 + Math.random()*2.5,
+color: sc
+});
+}
+}
+}
+function buildCustom3DRig(counts, formation){
+fixtures = [];
+var idCounter = 0;
+var palette = ["#D4AF37","#00F5D4","#FF007F","#38BDF8","#10B981","#A855F7","#F97316","#FACC15"];
+var nBeams = counts.beams;
+for(var i=0; i<nBeams; i++){
+var t = nBeams > 1 ? (i / (nBeams - 1)) * 2 - 1 : 0;
+var bx = t * 92 * gridSpanX;
+var by = 82 * gridSpanY;
+var bz = 35 * gridSpanZ;
+if(formation === "arena"){ bz = (Math.cos(t * 1.3) * 55) * gridSpanZ; by = (75 + Math.abs(t)*12) * gridSpanY; }
+else if(formation === "pyramid"){ by = (92 - Math.abs(t)*45) * gridSpanY; bz = (45 - Math.abs(t)*35) * gridSpanZ; }
+else if(formation === "vwing"){ bz = (-20 + Math.abs(t)*70) * gridSpanZ; }
+fixtures.push({
+id: idCounter++, name: "Beam " + (i+1), type: "beam", on: true,
+color: palette[i % palette.length],
+x: Math.round(bx), y: Math.round(by), z: Math.round(bz),
+pan: Math.round(-t * 18), tilt: -26
+});
+}
+var nLasers = counts.lasers;
+for(var l=0; l<nLasers; l++){
+var lt = nLasers > 1 ? (l / (nLasers - 1)) * 2 - 1 : 0;
+var lx = lt * 82 * gridSpanX;
+var ly = 72 * gridSpanY;
+var lz = 20 * gridSpanZ;
+if(formation === "pyramid"){ ly = (88 - Math.abs(lt)*30) * gridSpanY; }
+fixtures.push({
+id: idCounter++, name: "ILDA Laser " + (l+1), type: "laser", on: true,
+color: ["#00F5D4","#D4AF37","#FF007F","#38BDF8","#00FF41","#A855F7"][l % 6],
+x: Math.round(lx), y: Math.round(ly), z: Math.round(lz),
+pan: Math.round(-lt * 12), tilt: -16
+});
+}
+var nGrid = counts.grid3d;
+if(nGrid > 0){
+var cols = Math.max(2, Math.round(Math.cbrt(nGrid) * 1.4));
+var tiers = Math.max(1, Math.round(Math.cbrt(nGrid) * 0.8));
+var depths = Math.max(1, Math.ceil(nGrid / (cols * tiers)));
+var gCount = 0;
+for(var gy=0; gy<tiers && gCount<nGrid; gy++){
+for(var gz=0; gz<depths && gCount<nGrid; gz++){
+for(var gx=0; gx<cols && gCount<nGrid; gx++){
+var nx = (cols > 1 ? (gx/(cols-1))*2 - 1 : 0) * 86 * gridSpanX;
+var ny = (25 + (tiers > 1 ? (gy/(tiers-1))*58 : 40)) * gridSpanY;
+var nz = ((depths > 1 ? (gz/(depths-1))*2 - 1 : 0) * 65) * gridSpanZ;
+fixtures.push({
+id: idCounter++, name: "3D Grid " + (gCount+1), type: "grid3d", on: true,
+color: palette[(gx + gy + gz) % palette.length],
+x: Math.round(nx), y: Math.round(ny), z: Math.round(nz),
+pan: 0, tilt: -45
+});
+gCount++;
+}
+}
+}
+}
+var nWash = counts.wash;
+for(var w=0; w<nWash; w++){
+var wt = nWash > 1 ? (w / (nWash - 1)) * 2 - 1 : 0;
+fixtures.push({
+id: idCounter++, name: "Wash Bar " + (w+1), type: "wash", on: true,
+color: palette[(w + 2) % palette.length],
+x: Math.round(wt * 88 * gridSpanX), y: Math.round(52 * gridSpanY), z: Math.round(58 * gridSpanZ),
+pan: 0, tilt: -20
+});
+}
+var nStrobes = counts.strobes;
+for(var st=0; st<nStrobes; st++){
+var stt = nStrobes > 1 ? (st / (nStrobes - 1)) * 2 - 1 : 0;
+fixtures.push({
+id: idCounter++, name: "Strobe " + (st+1), type: "strobe", on: true,
+color: "#FFFFFF",
+x: Math.round(stt * 78 * gridSpanX), y: Math.round(64 * gridSpanY), z: Math.round(10 * gridSpanZ),
+pan: 0, tilt: -10
+});
+}
+var nPyro = counts.pyro;
+for(var p=0; p<nPyro; p++){
+var pt = nPyro > 1 ? (p / (nPyro - 1)) * 2 - 1 : 0;
+fixtures.push({
+id: idCounter++, name: "Pyro Jet " + (p+1), type: "pyro", on: true,
+color: p % 2 === 0 ? "#F97316" : "#FACC15",
+x: Math.round(pt * 84 * gridSpanX), y: -68, z: Math.round(-32 * gridSpanZ),
+pan: 0, tilt: 90
+});
+}
+selectedFixIdx = Math.min(selectedFixIdx, Math.max(0, fixtures.length - 1));
+renderFixtureButtons();
+syncSelectedFixtureSliders();
+}
+function syncSelectedFixtureSliders(){
+var f = fixtures[selectedFixIdx];
+if(!f) return;
+document.getElementById("selFixLabel").textContent = "Selected: " + f.name + " [" + (f.on ? "ON" : "OFF") + "]";
+document.getElementById("fixColorPicker").value = f.color;
+document.getElementById("fixPosX").value = f.x; document.getElementById("fixPosXVal").textContent = f.x;
+document.getElementById("fixPosY").value = f.y; document.getElementById("fixPosYVal").textContent = f.y;
+document.getElementById("fixPosZ").value = f.z; document.getElementById("fixPosZVal").textContent = f.z;
+document.getElementById("fixPan").value = f.pan; document.getElementById("fixPanVal").textContent = f.pan + "°";
+document.getElementById("fixTilt").value = f.tilt; document.getElementById("fixTiltVal").textContent = f.tilt + "°";
+}
+function renderFixtureButtons(){
+var grid = document.getElementById("fixtureGrid");
+if(!grid) return;
+grid.innerHTML = "";
+var typeIcons = { beam:"💡 BEAM", laser:"⚡ 3D LASER", grid3d:"🧊 3D NODE", wash:"🌈 WASH", strobe:"⚡ STROBE", pyro:"🔥 PYRO JET" };
+fixtures.forEach(function(f, idx){
+if(geoFilter !== "all" && f.type !== geoFilter) return;
+var b = document.createElement("button");
+b.type = "button";
+b.className = "geo-node-btn" + (f.on ? "" : " node-off") + (idx === selectedFixIdx ? " node-sel" : "");
+b.style.setProperty("--fc", f.color);
+b.innerHTML = '<div style="display:flex;justify-content:space-between;width:100%;font-size:9px;opacity:0.85"><span>' + (typeIcons[f.type]||f.type) + '</span><span style="color:' + (f.on ? '#34D399' : '#EF4444') + '">' + (f.on ? '● ON' : '○ OFF') + '</span></div>'
++ '<b style="color:' + f.color + ';font-size:11px">' + f.name + '</b>'
++ '<small style="font-size:8.5px;color:var(--mute)">X:' + f.x + ' Y:' + f.y + ' Z:' + f.z + '</small>';
+b.onclick = function(ev){
+if(selectedFixIdx === idx || ev.shiftKey){
+f.on = !f.on;
+}
+selectedFixIdx = idx;
+syncSelectedFixtureSliders();
+renderFixtureButtons();
+};
+grid.appendChild(b);
+});
+}
+renderFixtureButtonsFn = renderFixtureButtons;
+var RIG_PRESETS = {
+festival: { beams: 10, lasers: 6, grid3d: 18, wash: 6, strobes: 6, pyro: 6, form: "arena" },
+cube3d:   { beams: 6,  lasers: 6, grid3d: 27, wash: 4, strobes: 4, pyro: 4, form: "cube" },
+club:     { beams: 8,  lasers: 2, grid3d: 0,  wash: 4, strobes: 4, pyro: 0, form: "vwing" },
+mobile:   { beams: 4,  lasers: 1, grid3d: 0,  wash: 4, strobes: 2, pyro: 2, form: "arena" },
+pyromax:  { beams: 8,  lasers: 8, grid3d: 12, wash: 4, strobes: 8, pyro: 12, form: "pyramid" }
+};
+function loadRigPreset(key){
+var p = RIG_PRESETS[key] || RIG_PRESETS.festival;
+currentFormation = p.form;
+document.getElementById("cntBeams").value = p.beams; document.getElementById("cntBeamsVal").textContent = p.beams;
+document.getElementById("cntLasers").value = p.lasers; document.getElementById("cntLasersVal").textContent = p.lasers;
+document.getElementById("cntGrid3D").value = p.grid3d; document.getElementById("cntGrid3DVal").textContent = p.grid3d;
+document.getElementById("cntWash").value = p.wash; document.getElementById("cntWashVal").textContent = p.wash;
+document.getElementById("cntStrobes").value = p.strobes; document.getElementById("cntStrobesVal").textContent = p.strobes;
+document.getElementById("cntPyro").value = p.pyro; document.getElementById("cntPyroVal").textContent = p.pyro;
+buildCustom3DRig(p, currentFormation);
+}
+var activeCueIdx = 0, autoSeqCues = false, cueTimer = null;
+var showCues = [
+{ name: "Cue 1: Sovereign Gold Pyro", geo: "fan", rx: 22, ry: 0, rz: 15, pyro: "spark", cols: ["#D4AF37","#10B981","#38BDF8","#F97316"] },
+{ name: "Cue 2: Z-Vortex Laser Tunnel", geo: "tunnel", rx: 10, ry: 35, rz: 45, pyro: "cryo", cols: ["#00F5D4","#6366F1","#EC4899","#38BDF8"] },
+{ name: "Cue 3: 3D Lissajous & Flames", geo: "lissajous", rx: 45, ry: 20, rz: 0, pyro: "flame", cols: ["#FF007F","#F97316","#FDE047","#38BDF8"] },
+{ name: "Cue 4: Hypercube 3D Matrix", geo: "cube", rx: 35, ry: 45, rz: 25, pyro: "none", cols: ["#10B981","#00FF41","#38BDF8","#A7F3D0"] },
+{ name: "Cue 5: DNA Double Helix", geo: "helix", rx: 20, ry: -25, rz: 40, pyro: "spark", cols: ["#8B5CF6","#EC4899","#06B6D4","#FDE047"] },
+{ name: "Cue 6: Festival Inferno Drop", geo: "tunnel", rx: 60, ry: -30, rz: 90, pyro: "flame", cols: ["#EF4444","#F97316","#FACC15","#FFFFFF"] },
+{ name: "Cue 7: Liquid Sky Horizon", geo: "sky", rx: 6, ry: 0, rz: 0, pyro: "cryo", cols: ["#06B6D4","#3B82F6","#10B981","#A855F7"] },
+{ name: "Cue 8: Grand Finale Starburst", geo: "lissajous", rx: 50, ry: 50, rz: 50, pyro: "shell", cols: ["#F43F5E","#38BDF8","#FACC15","#34D399"] }
+];
+function renderCueBank(){
+var g = document.getElementById("cueBankGrid");
+if(!g) return;
+g.innerHTML = "";
+showCues.forEach(function(c, idx){
+var b = document.createElement("button");
+b.type = "button";
+b.className = "cue-btn" + (idx === activeCueIdx ? " active-cue" : "");
+b.style.setProperty("--cc", c.cols[0]);
+b.innerHTML = '<span>' + c.name + '</span><small style="color:var(--mute);font-size:9.5px">' + c.geo.toUpperCase() + ' • PYRO: ' + c.pyro.toUpperCase() + '</small>';
+b.onclick = function(){ activateCue(idx); };
+g.appendChild(b);
+});
+}
+function activateCue(idx){
+activeCueIdx = idx;
+var c = showCues[idx]; if(!c) return;
+geo = c.geo;
+document.querySelectorAll("#laserGeoSeg button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.g === geo); });
+lasRotX = c.rx; lasRotY = c.ry; lasRotZ = c.rz;
+document.getElementById("lasRotX").value = lasRotX; document.getElementById("lasRotXVal").textContent = lasRotX + "°";
+document.getElementById("lasRotY").value = lasRotY; document.getElementById("lasRotYVal").textContent = lasRotY + "°";
+document.getElementById("lasRotZ").value = lasRotZ; document.getElementById("lasRotZVal").textContent = lasRotZ + "°";
+fixtures.forEach(function(f, i){ f.color = c.cols[i % c.cols.length]; });
+if(c.pyro && c.pyro !== "none") spawnPyroBurst(c.pyro);
+renderFixtureButtons();
+renderCueBank();
+}
+function applyRgbFrameToCurrentRig(sf){
+if(!sf || !sf.colors || !fixtures.length) return;
+var cols = sf.colors;
+var mapMode = document.getElementById("rigMapModeSel") ? document.getElementById("rigMapModeSel").value : "role";
+if(sf.geo && ["fan","tunnel","lissajous","cube","helix","sky"].indexOf(sf.geo) > -1){
+geo = sf.geo;
+document.querySelectorAll("#laserGeoSeg button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.g === geo); });
+}
+if(sf.flame) spawnPyroBurst("flame");
+if(sf.spark) spawnPyroBurst("spark");
+if(sf.cryo)  spawnPyroBurst("cryo");
+if(sf.shell) spawnPyroBurst("shell");
+strobe = !!sf.kick;
+var row1Beams  = cols.slice(0, 10);
+var row2Lasers = cols.slice(10, 20);
+var row3Grid   = cols.length >= 30 ? cols.slice(20, 30) : row1Beams;
+var row4Pyro   = cols.length >= 40 ? cols.slice(30, 40) : row2Lasers;
+fixtures.forEach(function(f, i){
+if(mapMode === "role"){
+if(f.type === "beam")   f.color = row1Beams[i % row1Beams.length] || f.color;
+else if(f.type === "laser")  f.color = row2Lasers[i % row2Lasers.length] || f.color;
+else if(f.type === "grid3d" || f.type === "wash") f.color = row3Grid[i % row3Grid.length] || f.color;
+else f.color = row4Pyro[i % row4Pyro.length] || f.color;
+}else if(mapMode === "mirror"){
+var distFromCenter = Math.min(1, Math.abs(f.x) / 100);
+var cIdx = Math.min(cols.length - 1, Math.floor(distFromCenter * (cols.length / 2)));
+f.color = cols[cIdx] || f.color;
+}else if(mapMode === "sweepX"){
+var normX = Math.max(0, Math.min(1, (f.x + 100) / 200));
+var xIdx = Math.min(cols.length - 1, Math.floor(normX * cols.length));
+f.color = cols[xIdx] || f.color;
+}else if(mapMode === "depthZ"){
+var normZ = Math.max(0, Math.min(1, (f.z + 90) / 180));
+var zIdx = Math.min(cols.length - 1, Math.floor(normZ * cols.length));
+f.color = cols[zIdx] || f.color;
+}else{
+var normY = Math.max(0, Math.min(1, (f.y + 70) / 170));
+var yIdx = Math.min(cols.length - 1, Math.floor(normY * cols.length));
+f.color = cols[yIdx] || f.color;
+}
+});
+}
+function rotate3D(x, y, z, rxDeg, ryDeg, rzDeg){
+var rx = rxDeg * Math.PI / 180, ry = ryDeg * Math.PI / 180, rz = rzDeg * Math.PI / 180;
+var y1 = y * Math.cos(rx) - z * Math.sin(rx);
+var z1 = y * Math.sin(rx) + z * Math.cos(rx);
+var x2 = x * Math.cos(ry) + z1 * Math.sin(ry);
+var z2 = -x * Math.sin(ry) + z1 * Math.cos(ry);
+var x3 = x2 * Math.cos(rz) - y1 * Math.sin(rz);
+var y3 = x2 * Math.sin(rz) + y1 * Math.cos(rz);
+return { x: x3, y: y3, z: z2 };
+}
+function projectPoint(pt, viewType, vpX, vpY, vpW, vpH){
+var cx = vpX + vpW / 2, cy = vpY + vpH * 0.54;
+if(viewType === "top"){
+return { sx: cx + pt.x * (vpW / 240), sy: (vpY + vpH/2) - pt.z * (vpH / 220), depth: pt.y, scale: 1.2 };
+}
+if(viewType === "side"){
+return { sx: cx + pt.z * (vpW / 240), sy: cy - pt.y * (vpH / 200), depth: pt.x, scale: 1.2 };
+}
+var camPt = rotate3D(pt.x, pt.y, pt.z, camPitch, camYaw, 0);
+var fov = 275;
+var dist = Math.max(38, 225 - camPt.z);
+var scale = (fov / dist) * (vpW / 260);
+return { sx: cx + camPt.x * scale, sy: cy - camPt.y * scale, depth: dist, scale: scale };
+}
+function generateLaserGeometry3D(geoType, timeTick, fIdx){
+var pts = [];
+var spin = timeTick * lasSpin * 42;
+var rx = lasRotX + spin * 0.7;
+var ry = lasRotY + spin * 1.1 + fIdx * 28;
+var rz = lasRotZ + spin * 0.5;
+var spread = lasDiv * 68;
+var depthScale = lasDepthZ * 58;
+if(geoType === "cube"){
+var s = spread * 0.65;
+var v = [
+[-s,-s,-s],[s,-s,-s],[s,s,-s],[-s,s,-s],
+[-s,-s,s],[s,-s,s],[s,s,s],[-s,s,s]
+].map(function(p){ return rotate3D(p[0], p[1], p[2] * lasDepthZ, rx, ry, rz); });
+[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(function(e){
+pts.push(v[e[0]], v[e[1]], null);
+});
+}else if(geoType === "tunnel"){
+for(var ring=0; ring<4; ring++){
+var zVal = -depthScale + (ring / 3) * (depthScale * 2);
+var rad = spread * (0.35 + 0.65 * ((ring + 1) / 4));
+for(var a=0; a<=Math.PI*2+0.1; a+=0.32){
+pts.push(rotate3D(Math.cos(a + timeTick*2.2 + ring*0.5)*rad, Math.sin(a + timeTick*2.2 + ring*0.5)*rad, zVal, rx, ry, rz));
+}
+pts.push(null);
+}
+}else if(geoType === "lissajous"){
+var kx = lasHarm, ky = lasHarm + 1, kz = Math.max(1, lasHarm - 1);
+for(var t=0; t<=Math.PI*2+0.08; t+=0.09){
+pts.push(rotate3D(Math.sin(kx*t + timeTick*1.9)*spread, Math.cos(ky*t)*spread*0.75, Math.sin(kz*t - timeTick)*depthScale, rx, ry, rz));
+}
+}else if(geoType === "helix"){
+for(var h=-1; h<=1; h+=2){
+for(var th=0; th<=Math.PI*3; th+=0.22){
+var hx = Math.cos(th + timeTick*2.5 + (h>0?0:Math.PI)) * spread * 0.65;
+var hy = ((th / (Math.PI*3)) * 2 - 1) * spread * 0.75;
+var hz = Math.sin(th + timeTick*2.5 + (h>0?0:Math.PI)) * depthScale * 0.7;
+pts.push(rotate3D(hx, hy, hz, rx, ry, rz));
+}
+pts.push(null);
+}
+}else if(geoType === "sky"){
+var step = Math.max(6, (spread*2) / laserRayCount);
+for(var x=-spread; x<=spread; x+=step){
+var y = Math.sin(x * 0.08 + timeTick * 3.2 + fIdx) * 18;
+var z = Math.cos(x * 0.06 - timeTick * 2.1) * depthScale;
+pts.push(rotate3D(x, y, z, rx, ry, rz));
+}
+}else{
+var nRays = Math.max(4, Math.round(laserRayCount / 2));
+for(var r=-nRays; r<=nRays; r++){
+var px = r * (spread / nRays);
+var py = -42 + Math.sin(timeTick * 2.2 + r * 0.5) * 22;
+var pz = -depthScale * 0.75 + Math.cos(r * 0.4 + timeTick) * (depthScale * 0.55);
+pts.push(rotate3D(px, py, pz, rx, ry, rz));
+}
+}
+return pts;
+}
+function renderViewport(viewType, vx, vy, vw, vh, label){
+ctx.save();
+ctx.beginPath(); ctx.rect(vx, vy, vw, vh); ctx.clip();
+var bgGrad = ctx.createLinearGradient(vx, vy, vx, vy + vh);
+bgGrad.addColorStop(0, "#030611");
+bgGrad.addColorStop(0.65, "#060B19");
+bgGrad.addColorStop(1, "#0B1120");
+ctx.fillStyle = bgGrad;
+ctx.fillRect(vx, vy, vw, vh);
+ctx.strokeStyle = "rgba(71, 85, 105, 0.38)";
+ctx.lineWidth = 1;
+for(var gx=-100; gx<=100; gx+=25){
+var p1 = projectPoint({x: gx, y: -68, z: -100}, viewType, vx, vy, vw, vh);
+var p2 = projectPoint({x: gx, y: -68, z: 100}, viewType, vx, vy, vw, vh);
+ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy); ctx.stroke();
+}
+for(var gz=-100; gz<=100; gz+=25){
+var p3 = projectPoint({x: -100, y: -68, z: gz}, viewType, vx, vy, vw, vh);
+var p4 = projectPoint({x: 100, y: -68, z: gz}, viewType, vx, vy, vw, vh);
+ctx.beginPath(); ctx.moveTo(p3.sx, p3.sy); ctx.lineTo(p4.sx, p4.sy); ctx.stroke();
+}
+var tl = projectPoint({x:-96*gridSpanX, y:82*gridSpanY, z:35*gridSpanZ}, viewType, vx, vy, vw, vh);
+var tr = projectPoint({x:96*gridSpanX, y:82*gridSpanY, z:35*gridSpanZ}, viewType, vx, vy, vw, vh);
+var bl = projectPoint({x:-96*gridSpanX, y:-68, z:35*gridSpanZ}, viewType, vx, vy, vw, vh);
+var br = projectPoint({x:96*gridSpanX, y:-68, z:35*gridSpanZ}, viewType, vx, vy, vw, vh);
+ctx.strokeStyle = "rgba(148, 163, 184, 0.35)";
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(bl.sx, bl.sy); ctx.lineTo(tl.sx, tl.sy); ctx.lineTo(tr.sx, tr.sy); ctx.lineTo(br.sx, br.sy);
+ctx.stroke();
+var djL = projectPoint({x:-22, y:-68, z:18}, viewType, vx, vy, vw, vh);
+var djR = projectPoint({x:22, y:-68, z:18}, viewType, vx, vy, vw, vh);
+var djTopL = projectPoint({x:-18, y:-48, z:15}, viewType, vx, vy, vw, vh);
+var djTopR = projectPoint({x:18, y:-48, z:15}, viewType, vx, vy, vw, vh);
+ctx.fillStyle = "#111827";
+ctx.strokeStyle = "#D4AF37";
+ctx.lineWidth = 1.5;
+ctx.beginPath();
+ctx.moveTo(djL.sx, djL.sy); ctx.lineTo(djTopL.sx, djTopL.sy);
+ctx.lineTo(djTopR.sx, djTopR.sy); ctx.lineTo(djR.sx, djR.sy);
+ctx.closePath(); ctx.fill(); ctx.stroke();
+ctx.save();
+ctx.globalCompositeOperation = "lighter";
+if(smokeEnabled){
+smokeParticles.forEach(function(sp){
+var sp2d = projectPoint(sp, viewType, vx, vy, vw, vh);
+var rad = Math.max(12, sp.r * (sp2d.scale || 1) * 0.45);
+var leadCol = fixtures.length ? fixtures[0].color : "#38BDF8";
+var sGrad = ctx.createRadialGradient(sp2d.sx, sp2d.sy, 2, sp2d.sx, sp2d.sy, rad);
+sGrad.addColorStop(0, leadCol);
+sGrad.addColorStop(0.45, "rgba(148, 163, 184, 0.22)");
+sGrad.addColorStop(1, "transparent");
+ctx.globalAlpha = sp.alpha * smokePlumeDensity * (blackout ? 0.15 : 0.85);
+ctx.fillStyle = sGrad;
+ctx.beginPath(); ctx.arc(sp2d.sx, sp2d.sy, rad, 0, Math.PI*2); ctx.fill();
+});
+if(floorFogDensity > 0.05){
+var fCenter = projectPoint({x:0, y:-68, z:0}, viewType, vx, vy, vw, vh);
+var fogG = ctx.createLinearGradient(vx, fCenter.sy - 45, vx, fCenter.sy + 65);
+fogG.addColorStop(0, "transparent");
+fogG.addColorStop(0.5, "rgba(203, 213, 225, " + (floorFogDensity * 0.26) + ")");
+fogG.addColorStop(1, "transparent");
+ctx.globalAlpha = 1;
+ctx.fillStyle = fogG;
+ctx.fillRect(vx, fCenter.sy - 45, vw, 110);
+}
+}
+if(!blackout){
+fixtures.forEach(function(f, idx){
+if(!f.on) return;
+var origin3D = { x: f.x, y: f.y, z: f.z };
+var orig2D = projectPoint(origin3D, viewType, vx, vy, vw, vh);
+var sweepPan = f.pan + Math.sin(tick * 1.5 + idx * 0.65) * beamSweepAmp;
+var sweepTilt = f.tilt + Math.cos(tick * 1.2 + idx * 0.45) * (beamSweepAmp * 0.45);
+var panRad = sweepPan * Math.PI / 180;
+var tiltRad = sweepTilt * Math.PI / 180;
+var aimCenter = {
+x: f.x + Math.sin(panRad) * 95,
+y: -68,
+z: f.z - Math.cos(panRad) * Math.cos(tiltRad) * 95
+};
+var aim2D = projectPoint(aimCenter, viewType, vx, vy, vw, vh);
+if(f.type === "beam" || f.type === "wash"){
+var isWash = f.type === "wash";
+var coneW = Math.max(16, (vw / (isWash ? 7.5 : 13.5)) * beamWidthScale);
+var grad = ctx.createLinearGradient(orig2D.sx, orig2D.sy, aim2D.sx, aim2D.sy);
+grad.addColorStop(0, "#FFFFFF");
+grad.addColorStop(0.12, f.color);
+grad.addColorStop(0.82, f.color);
+grad.addColorStop(1, "transparent");
+ctx.fillStyle = grad;
+ctx.globalAlpha = (isWash ? 0.24 : 0.48) * haze;
+ctx.beginPath();
+ctx.moveTo(orig2D.sx - 3, orig2D.sy);
+ctx.lineTo(orig2D.sx + 3, orig2D.sy);
+ctx.lineTo(aim2D.sx + coneW, aim2D.sy);
+ctx.lineTo(aim2D.sx - coneW, aim2D.sy);
+ctx.closePath(); ctx.fill();
+if(!isWash){
+ctx.strokeStyle = f.color;
+ctx.globalAlpha = 0.72 * haze;
+ctx.lineWidth = 2.2;
+ctx.beginPath(); ctx.moveTo(orig2D.sx, orig2D.sy); ctx.lineTo(aim2D.sx, aim2D.sy); ctx.stroke();
+}
+if(floorReflect > 0.05){
+ctx.fillStyle = f.color;
+ctx.globalAlpha = floorReflect * 0.42;
+ctx.beginPath();
+ctx.ellipse(aim2D.sx, aim2D.sy, coneW * 0.75, Math.max(6, coneW * 0.26), 0, 0, Math.PI*2);
+ctx.fill();
+}
+}else if(f.type === "grid3d"){
+var pulse = 0.55 + 0.45 * Math.sin(tick * 3.2 + idx * 0.5);
+var orbR = Math.max(6, 13 * (orig2D.scale || 1) * pulse);
+var orbG = ctx.createRadialGradient(orig2D.sx, orig2D.sy, 1, orig2D.sx, orig2D.sy, orbR * 2.2);
+orbG.addColorStop(0, "#FFFFFF");
+orbG.addColorStop(0.35, f.color);
+orbG.addColorStop(1, "transparent");
+ctx.fillStyle = orbG;
+ctx.globalAlpha = 0.85;
+ctx.beginPath(); ctx.arc(orig2D.sx, orig2D.sy, orbR * 2.2, 0, Math.PI*2); ctx.fill();
+}else if(f.type === "strobe"){
+var stFire = strobe || (Math.sin(tick * 9 + idx) > 0.88);
+if(stFire){
+var stG = ctx.createRadialGradient(orig2D.sx, orig2D.sy, 2, orig2D.sx, orig2D.sy, 65);
+stG.addColorStop(0, "#FFFFFF");
+stG.addColorStop(0.4, f.color);
+stG.addColorStop(1, "transparent");
+ctx.fillStyle = stG;
+ctx.globalAlpha = 0.92;
+ctx.beginPath(); ctx.arc(orig2D.sx, orig2D.sy, 65, 0, Math.PI*2); ctx.fill();
+}
+}else if(f.type === "laser"){
+var localPts = generateLaserGeometry3D(geo, tick, idx);
+ctx.strokeStyle = f.color;
+ctx.fillStyle = f.color;
+ctx.globalAlpha = haze * 0.42;
+ctx.lineWidth = 1.35;
+for(var k=0; k<localPts.length; k++){
+var lp = localPts[k]; if(!lp) continue;
+var worldPt = { x: aimCenter.x + lp.x * 0.65, y: -5 + lp.y * 0.65, z: aimCenter.z + lp.z * 0.65 };
+var p2d = projectPoint(worldPt, viewType, vx, vy, vw, vh);
+ctx.beginPath(); ctx.moveTo(orig2D.sx, orig2D.sy); ctx.lineTo(p2d.sx, p2d.sy); ctx.stroke();
+}
+ctx.globalAlpha = 0.98;
+ctx.lineWidth = 2.6;
+ctx.shadowColor = f.color;
+ctx.shadowBlur = 12;
+ctx.beginPath();
+var started = false;
+localPts.forEach(function(lp){
+if(!lp){ started = false; return; }
+var worldPt = { x: aimCenter.x + lp.x * 0.65, y: -5 + lp.y * 0.65, z: aimCenter.z + lp.z * 0.65 };
+var p2d = projectPoint(worldPt, viewType, vx, vy, vw, vh);
+if(!started){ ctx.moveTo(p2d.sx, p2d.sy); started = true; }
+else ctx.lineTo(p2d.sx, p2d.sy);
+});
+ctx.stroke();
+ctx.shadowBlur = 0;
+}
+});
+}
+pyroParticles.forEach(function(pp){
+var p2d = projectPoint(pp, viewType, vx, vy, vw, vh);
+var r = Math.max(2, pp.size * (p2d.scale || 1) * 0.35 * pp.life);
+if(pp.kind === "flame"){
+var fCol = "#F97316";
+if(flameColorMode === "rgb") fCol = pp.color || "#F97316";
+else if(flameColorMode === "emerald") fCol = "#10B981";
+else if(flameColorMode === "crimson") fCol = "#EF4444";
+else if(flameColorMode === "cobalt")  fCol = "#6366F1";
+var fg = ctx.createRadialGradient(p2d.sx, p2d.sy, 1, p2d.sx, p2d.sy, r * 2.2);
+fg.addColorStop(0, "#FFFFFF");
+fg.addColorStop(0.3, "#FDE047");
+fg.addColorStop(0.65, fCol);
+fg.addColorStop(1, "transparent");
+ctx.fillStyle = fg;
+ctx.globalAlpha = pp.life * 0.92;
+ctx.beginPath(); ctx.arc(p2d.sx, p2d.sy, r * 2.2, 0, Math.PI*2); ctx.fill();
+}else if(pp.kind === "spark" || pp.kind === "shell"){
+ctx.fillStyle = pp.color;
+ctx.globalAlpha = pp.life;
+ctx.beginPath(); ctx.arc(p2d.sx, p2d.sy, r, 0, Math.PI*2); ctx.fill();
+ctx.strokeStyle = "#FFFFFF";
+ctx.lineWidth = 1.2;
+ctx.beginPath(); ctx.moveTo(p2d.sx, p2d.sy); ctx.lineTo(p2d.sx - pp.vx*2, p2d.sy + pp.vy*2); ctx.stroke();
+}else if(pp.kind === "cryo"){
+var cg = ctx.createRadialGradient(p2d.sx, p2d.sy, 1, p2d.sx, p2d.sy, r * 2.0);
+cg.addColorStop(0, "rgba(255,255,255,0.85)");
+cg.addColorStop(0.5, "rgba(186,230,253,0.45)");
+cg.addColorStop(1, "transparent");
+ctx.fillStyle = cg;
+ctx.globalAlpha = pp.life * 0.78;
+ctx.beginPath(); ctx.arc(p2d.sx, p2d.sy, r * 2.0, 0, Math.PI*2); ctx.fill();
+}
+});
+ctx.restore(); // End additive blending
+fixtures.forEach(function(f, idx){
+var orig2D = projectPoint(f, viewType, vx, vy, vw, vh);
+ctx.globalAlpha = f.on ? 1 : 0.3;
+ctx.fillStyle = f.on ? f.color : "#475569";
+ctx.beginPath();
+ctx.arc(orig2D.sx, orig2D.sy, idx === selectedFixIdx ? 7.5 : 4.2, 0, Math.PI*2);
+ctx.fill();
+if(idx === selectedFixIdx){
+ctx.strokeStyle = "#FFFFFF"; ctx.lineWidth = 2.2; ctx.stroke();
+}
+});
+ctx.fillStyle = "rgba(9, 13, 22, 0.82)";
+ctx.fillRect(vx + 8, vy + 8, 220, 22);
+ctx.fillStyle = "#D4AF37";
+ctx.font = "700 11px monospace";
+ctx.fillText(label, vx + 14, vy + 23);
+ctx.restore();
+}
+var songFrames = [], songFrameIdx = 0, lastSongStepTime = 0;
+function loadSongFramesIntoShine(frames, newBpm, label){
+if(!frames || !frames.length) return;
+songFrames = frames; songFrameIdx = 0;
+if(newBpm){ bpm = newBpm; document.getElementById("shineBpmRange").value = bpm; document.getElementById("bpmValLbl").textContent = bpm; }
+document.getElementById("shineSongStatus").textContent = "🎵 Playing DJ Script: " + label + " (" + frames.length + " cues @ " + bpm + " BPM)";
+}
+function stepPhysicsAndParticles(){
+smokeParticles.forEach(function(sp){
+sp.x += sp.vx + (windDrift * 0.015);
+sp.y += sp.vy;
+if(sp.x > 125) sp.x = -125;
+if(sp.x < -125) sp.x = 125;
+if(sp.y > 55) sp.y = -68;
+});
+if(flameActive || autoPyroMode === "always") spawnPyroBurst("flame");
+if(sparkActive || autoPyroMode === "always") spawnPyroBurst("spark");
+if(cryoActive) spawnPyroBurst("cryo");
+if(playingShow && autoPyroMode === "drops"){
+var beatPhase = (tick * 2.0) % (Math.PI * 4);
+if(beatPhase < 0.14) spawnPyroBurst("flame");
+else if(Math.abs(beatPhase - Math.PI*2) < 0.14) spawnPyroBurst("spark");
+}
+for(var i=pyroParticles.length-1; i>=0; i--){
+var p = pyroParticles[i];
+p.x += p.vx;
+p.y += p.vy;
+p.z += p.vz;
+if(p.kind === "spark" || p.kind === "shell") p.vy -= 0.11; // Gravity on sparks
+p.life -= p.decay;
+if(p.life <= 0) pyroParticles.splice(i, 1);
+}
+}
+function renderShow(){
+if(playingShow) tick += (bpm / 120) * 0.032;
+stepPhysicsAndParticles();
+if(songFrames.length && performance.now() - lastSongStepTime > (60000 / bpm / 4)){
+lastSongStepTime = performance.now();
+var sf = songFrames[songFrameIdx % songFrames.length];
+applyRgbFrameToCurrentRig(sf);
+if(songFrameIdx % 12 === 0) renderFixtureButtons();
+songFrameIdx = (songFrameIdx + 1) % songFrames.length;
+}
+ctx.fillStyle = "#020307";
+ctx.fillRect(0, 0, cv.width, cv.height);
+if(strobe && !blackout && Math.floor(tick * 24) % 2 === 0){
+ctx.fillStyle = "rgba(255, 255, 255, 0.28)";
+ctx.fillRect(0, 0, cv.width, cv.height);
+}
+var activeCount = fixtures.filter(function(f){ return f.on; }).length;
+if(camMode === "quad"){
+var hw = cv.width / 2, hh = cv.height / 2;
+renderViewport("persp", 0, 0, hw, hh, "3D ARENA ORBIT (" + activeCount + " ON)");
+renderViewport("top", hw, 0, hw, hh, "TOP PLAN (X-Z)");
+renderViewport("side", 0, hh, hw, hh, "SIDE ELEVATION (Y-Z)");
+var oldYaw = camYaw; camYaw += 90;
+renderViewport("persp", hw, hh, hw, hh, "CROSS STAGE (Z-X)");
+camYaw = oldYaw;
+ctx.strokeStyle = "#334155"; ctx.lineWidth = 2;
+ctx.beginPath(); ctx.moveTo(hw, 0); ctx.lineTo(hw, cv.height); ctx.moveTo(0, hh); ctx.lineTo(cv.width, hh); ctx.stroke();
+}else{
+var vLbl = camMode === "top" ? "TOP ORTHOGRAPHIC (X-Z)" : camMode === "side" ? "SIDE ELEVATION (Y-Z)" : "3D ARENA STAGE (" + activeCount + "/" + fixtures.length + " FIXTURES ON • DRAG TO ORBIT)";
+renderViewport(camMode, 0, 0, cv.width, cv.height, vLbl);
+}
+requestAnimationFrame(renderShow);
+}
+var downX = 0, downY = 0;
+cv.addEventListener("pointerdown", function(e){
+draggingCam = true; lastMx = e.clientX; lastMy = e.clientY; downX = e.clientX; downY = e.clientY;
+try { cv.setPointerCapture(e.pointerId); } catch(err){}
+});
+cv.addEventListener("pointermove", function(e){
+if(!draggingCam) return;
+camYaw += (e.clientX - lastMx) * 0.45;
+camPitch = Math.max(-55, Math.min(75, camPitch + (e.clientY - lastMy) * 0.35));
+lastMx = e.clientX; lastMy = e.clientY;
+});
+window.addEventListener("pointerup", function(e){
+if(draggingCam && Math.hypot(e.clientX - downX, e.clientY - downY) < 6){
+var r = cv.getBoundingClientRect();
+var mx = (e.clientX - r.left) * (cv.width / r.width);
+var my = (e.clientY - r.top) * (cv.height / r.height);
+var bestIdx = -1, bestDist = 18;
+fixtures.forEach(function(f, idx){
+var p = projectPoint(f, camMode === "quad" ? "persp" : camMode, 0, 0, cv.width, cv.height);
+var d = Math.hypot(mx - p.sx, my - p.sy);
+if(d < bestDist){ bestDist = d; bestIdx = idx; }
+});
+if(bestIdx > -1){
+if(selectedFixIdx === bestIdx) fixtures[bestIdx].on = !fixtures[bestIdx].on;
+selectedFixIdx = bestIdx;
+syncSelectedFixtureSliders();
+renderFixtureButtons();
+}
+}
+draggingCam = false;
+});
+document.querySelectorAll(".studio-tab-btn").forEach(function(btn){
+btn.onclick = function(){
+var target = btn.dataset.tab;
+document.querySelectorAll(".studio-tab-btn").forEach(function(b){ b.setAttribute("aria-selected", b === btn); });
+document.querySelectorAll(".tab-pane").forEach(function(p){ p.classList.toggle("active-pane", p.id === target); });
+};
+});
+function wireHoldOrTogglePad(btnId, onTrigger, setFlag){
+var b = document.getElementById(btnId);
+if(!b) return;
+b.onclick = function(){
+onTrigger();
+b.classList.add("fx-active");
+setTimeout(function(){ b.classList.remove("fx-active"); }, 500);
+};
+}
+wireHoldOrTogglePad("padFlameBtn", function(){ for(var i=0;i<3;i++) setTimeout(function(){ spawnPyroBurst("flame"); }, i*120); });
+wireHoldOrTogglePad("padSparkBtn", function(){ for(var i=0;i<4;i++) setTimeout(function(){ spawnPyroBurst("spark"); }, i*130); });
+wireHoldOrTogglePad("padCryoBtn",  function(){ for(var i=0;i<3;i++) setTimeout(function(){ spawnPyroBurst("cryo"); }, i*110); });
+wireHoldOrTogglePad("padPyroShellBtn", function(){ spawnPyroBurst("shell"); setTimeout(function(){ spawnPyroBurst("shell"); }, 220); });
+document.getElementById("padSmokeBtn").onclick = function(){
+smokeEnabled = !smokeEnabled;
+this.textContent = smokeEnabled ? "🌫️ SMOKE: ON" : "🌫️ SMOKE: OFF";
+this.classList.toggle("fx-active", smokeEnabled);
+};
+document.getElementById("padStrobeBtn").onclick = function(){
+strobe = !strobe;
+this.classList.toggle("fx-active", strobe);
+};
+document.getElementById("padBlackoutBtn").onclick = function(){
+blackout = !blackout;
+this.classList.toggle("fx-active", blackout);
+this.textContent = blackout ? "🌑 BLACKOUT: ON" : "🌑 BLACKOUT";
+};
+document.getElementById("playShowBtn").onclick = function(){
+playingShow = !playingShow;
+this.textContent = playingShow ? "▶ Show Running" : "⏸ Show Paused";
+};
+document.querySelectorAll("#camViewSeg button").forEach(function(b){
+b.onclick = function(){
+camMode = b.dataset.cam;
+document.querySelectorAll("#camViewSeg button").forEach(function(x){ x.setAttribute("aria-pressed", x === b); });
+};
+});
+document.querySelectorAll("#laserGeoSeg button").forEach(function(b){
+b.onclick = function(){
+geo = b.dataset.g;
+document.querySelectorAll("#laserGeoSeg button").forEach(function(x){ x.setAttribute("aria-pressed", x === b); });
+};
+});
+document.getElementById("quickRigPresetSel").onchange = function(){ loadRigPreset(this.value); };
+document.querySelectorAll("#geoFilterSeg button").forEach(function(b){
+b.onclick = function(){
+geoFilter = b.dataset.gf;
+document.querySelectorAll("#geoFilterSeg button").forEach(function(x){ x.setAttribute("aria-pressed", x === b); });
+renderFixtureButtons();
+};
+});
+document.getElementById("geoAllOnBtn").onclick = function(){ fixtures.forEach(function(f){ f.on = true; }); renderFixtureButtons(); };
+document.getElementById("geoInvertBtn").onclick = function(){ fixtures.forEach(function(f){ f.on = !f.on; }); renderFixtureButtons(); };
+document.getElementById("geoOddEvenBtn").onclick = function(){ fixtures.forEach(function(f, i){ f.on = (i % 2 === 0); }); renderFixtureButtons(); };
+document.getElementById("geoToggleSelPowerBtn").onclick = function(){
+if(fixtures[selectedFixIdx]){
+fixtures[selectedFixIdx].on = !fixtures[selectedFixIdx].on;
+syncSelectedFixtureSliders();
+renderFixtureButtons();
+}
+};
+document.querySelectorAll(".geo-form-btn").forEach(function(b){
+b.onclick = function(){
+currentFormation = b.dataset.form;
+document.getElementById("rebuildCustomRigBtn").click();
+};
+});
+function updateGridSpans(){
+gridSpanX = +document.getElementById("gridSpanX").value / 100;
+gridSpanY = +document.getElementById("gridSpanY").value / 100;
+gridSpanZ = +document.getElementById("gridSpanZ").value / 100;
+document.getElementById("gridSpanXVal").textContent = Math.round(gridSpanX*100) + "%";
+document.getElementById("gridSpanYVal").textContent = Math.round(gridSpanY*100) + "%";
+document.getElementById("gridSpanZVal").textContent = Math.round(gridSpanZ*100) + "%";
+document.getElementById("rebuildCustomRigBtn").click();
+}
+["gridSpanX","gridSpanY","gridSpanZ"].forEach(function(id){ document.getElementById(id).oninput = updateGridSpans; });
+[["fixPosX","x",""],["fixPosY","y",""],["fixPosZ","z",""],["fixPan","pan","°"],["fixTilt","tilt","°"]].forEach(function(item){
+document.getElementById(item[0]).oninput = function(){
+var v = +this.value;
+document.getElementById(item[0] + "Val").textContent = v + item[2];
+if(fixtures[selectedFixIdx]){
+fixtures[selectedFixIdx][item[1]] = v;
+renderFixtureButtons();
+}
+};
+});
+document.getElementById("fixColorPicker").oninput = function(){
+UI_STATE.activeColor = this.value.toUpperCase();
+if(fixtures[selectedFixIdx]) fixtures[selectedFixIdx].color = UI_STATE.activeColor;
+renderFixtureButtons();
+saveAndBroadcastUi(true);
+};
+[["cntBeams","cntBeamsVal"],["cntLasers","cntLasersVal"],["cntGrid3D","cntGrid3DVal"],["cntWash","cntWashVal"],["cntStrobes","cntStrobesVal"],["cntPyro","cntPyroVal"]].forEach(function(pair){
+document.getElementById(pair[0]).oninput = function(){ document.getElementById(pair[1]).textContent = this.value; };
+});
+document.getElementById("rebuildCustomRigBtn").onclick = function(){
+buildCustom3DRig({
+beams: +document.getElementById("cntBeams").value,
+lasers: +document.getElementById("cntLasers").value,
+grid3d: +document.getElementById("cntGrid3D").value,
+wash: +document.getElementById("cntWash").value,
+strobes: +document.getElementById("cntStrobes").value,
+pyro: +document.getElementById("cntPyro").value
+}, currentFormation);
+};
+function buildDemoScriptFrames(palette, geoList, bpmVal){
+var arr = [];
+for(var f=0; f<64; f++){
+var cols = [];
+for(var k=0; k<40; k++) cols.push(palette[(k + f) % palette.length]);
+arr.push({
+colors: cols,
+geo: geoList[Math.floor(f / 16) % geoList.length],
+kick: (f % 8 === 7),
+flame: (f % 16 === 0),
+spark: (f % 16 === 8),
+cryo: (f % 32 === 15),
+bpm: bpmVal
+});
+}
+return arr;
+}
+function refreshSavedDjScriptsDropdown(){
+try{
+var lib = JSON.parse(localStorage.getItem("ffh_dj_song_scripts") || "{}");
+var sel = document.getElementById("savedDjScriptSel");
+Array.from(sel.querySelectorAll("option[data-custom='1']")).forEach(function(o){ o.remove(); });
+Object.keys(lib).forEach(function(name){
+var opt = document.createElement("option");
+opt.value = "custom:" + name;
+opt.dataset.custom = "1";
+opt.textContent = "🎹 HawkRGB Script: " + name + " (" + (lib[name].bpm || 128) + " BPM)";
+sel.insertBefore(opt, sel.firstChild);
+});
+}catch(e){}
+}
+document.getElementById("loadSavedDjScriptBtn").onclick = function(){
+var val = document.getElementById("savedDjScriptSel").value;
+if(val.indexOf("custom:") === 0){
+var name = val.slice(7);
+var lib = JSON.parse(localStorage.getItem("ffh_dj_song_scripts") || "{}");
+if(lib[name] && lib[name].frames){
+loadSongFramesIntoShine(lib[name].frames, lib[name].bpm || 128, name);
+}
+}else if(val === "preset_cyber"){
+loadSongFramesIntoShine(buildDemoScriptFrames(["#00F5D4","#FF007F","#7C3AED","#38BDF8"], ["tunnel","lissajous","cube","helix"], 128), 128, "Cyberpunk Festival Drop");
+}else if(val === "preset_gold"){
+loadSongFramesIntoShine(buildDemoScriptFrames(["#D4AF37","#10B981","#38BDF8","#F97316"], ["fan","cube","sky","lissajous"], 124), 124, "Sovereign Gold Tour");
+}else if(val === "preset_rave"){
+loadSongFramesIntoShine(buildDemoScriptFrames(["#00FF41","#10B981","#FACC15","#EF4444"], ["tunnel","helix","lissajous","fan"], 140), 140, "Warehouse Acid Laser Rave");
+}else{
+var latest = JSON.parse(localStorage.getItem("ffh_latest_rgb_show") || "null");
+if(latest && latest.frames) loadSongFramesIntoShine(latest.frames, latest.bpm || 128, latest.name || "HawkRGB Live Show");
+}
+};
+document.getElementById("lasRotX").oninput = function(){ lasRotX = +this.value; document.getElementById("lasRotXVal").textContent = lasRotX + "°"; };
+document.getElementById("lasRotY").oninput = function(){ lasRotY = +this.value; document.getElementById("lasRotYVal").textContent = lasRotY + "°"; };
+document.getElementById("lasRotZ").oninput = function(){ lasRotZ = +this.value; document.getElementById("lasRotZVal").textContent = lasRotZ + "°"; };
+document.getElementById("lasDepthZ").oninput = function(){ lasDepthZ = +this.value / 100; document.getElementById("lasDepthZVal").textContent = this.value + "%"; };
+document.getElementById("lasDiv").oninput = function(){ lasDiv = +this.value / 100; document.getElementById("lasDivVal").textContent = this.value + "%"; };
+document.getElementById("lasHarmonic").oninput = function(){ lasHarm = +this.value; document.getElementById("lasHarmVal").textContent = lasHarm + ":" + (lasHarm+1) + ":" + Math.max(1,lasHarm-1); };
+document.getElementById("lasSpinSpeed").oninput = function(){ lasSpin = +this.value / 100; document.getElementById("lasSpinVal").textContent = this.value + "%"; };
+document.getElementById("beamSweepAmp").oninput = function(){ beamSweepAmp = +this.value; document.getElementById("beamSweepVal").textContent = beamSweepAmp + "°"; };
+document.getElementById("beamWidthRange").oninput = function(){ beamWidthScale = +this.value / 100; document.getElementById("beamWidthVal").textContent = this.value + "%"; };
+document.getElementById("laserRayDensity").oninput = function(){ laserRayCount = +this.value; document.getElementById("laserRayVal").textContent = laserRayCount + " rays"; };
+document.getElementById("floorReflectRange").oninput = function(){ floorReflect = +this.value / 100; document.getElementById("floorReflectVal").textContent = this.value + "%"; };
+document.getElementById("flameColorModeSel").onchange = function(){ flameColorMode = this.value; };
+document.getElementById("flameHeightRange").oninput = function(){ flameHeightScale = +this.value / 100; document.getElementById("flameHeightVal").textContent = this.value + "%"; };
+document.getElementById("sparkRateRange").oninput = function(){ sparkRateScale = +this.value / 100; document.getElementById("sparkRateVal").textContent = this.value + "%"; };
+document.getElementById("autoPyroModeSel").onchange = function(){ autoPyroMode = this.value; };
+document.getElementById("shineHazeRange").oninput = function(){ haze = +this.value / 100; document.getElementById("hazeValLbl").textContent = this.value + "%"; };
+document.getElementById("smokePlumeRange").oninput = function(){ smokePlumeDensity = +this.value / 100; document.getElementById("smokePlumeVal").textContent = this.value + "%"; };
+document.getElementById("floorFogRange").oninput = function(){ floorFogDensity = +this.value / 100; document.getElementById("floorFogVal").textContent = this.value + "%"; };
+document.getElementById("windDriftRange").oninput = function(){ windDrift = +this.value; document.getElementById("windDriftVal").textContent = (windDrift >= 0 ? "+" : "") + windDrift; };
+document.getElementById("shineBpmRange").oninput = function(){ bpm = +this.value; document.getElementById("bpmValLbl").textContent = bpm; };
+document.getElementById("quickGroupColorIn").oninput = function(){
+UI_STATE.activeColor = this.value.toUpperCase();
+applyColorToTargetFixtures(UI_STATE.activeColor);
+saveAndBroadcastUi(true);
+};
+document.getElementById("assignChromaToGroupBtn").onclick = function(){
+applyColorToTargetFixtures(UI_STATE.activeColor || document.getElementById("quickGroupColorIn").value);
+};
+document.querySelectorAll(".quick-pal-btn").forEach(function(b){
+b.onclick = function(){
+var cols = b.dataset.p.split(",");
+fixtures.forEach(function(f, i){ f.color = cols[i % cols.length]; });
+renderFixtureButtons();
+};
+});
+document.getElementById("saveCueBtn").onclick = function(){
+showCues[activeCueIdx] = {
+name: "Cue " + (activeCueIdx + 1) + ": Custom 3D",
+geo: geo, rx: lasRotX, ry: lasRotY, rz: lasRotZ, pyro: "spark",
+cols: fixtures.slice(0, 6).map(function(f){ return f.color; })
+};
+renderCueBank();
+};
+document.getElementById("autoCycleCuesBtn").onclick = function(){
+autoSeqCues = !autoSeqCues;
+this.textContent = autoSeqCues ? "🔁 Auto-Cycle: ON" : "🔁 Auto-Cycle: Off";
+if(autoSeqCues){
+cueTimer = setInterval(function(){ activateCue((activeCueIdx + 1) % showCues.length); }, 3500);
+}else clearInterval(cueTimer);
+};
+document.getElementById("shineUploadSongBtn").onclick = function(){ document.getElementById("shineSongFileIn").click(); };
+document.getElementById("shineSongFileIn").onchange = function(e){
+var file = e.target.files && e.target.files[0]; if(!file) return;
+var reader = new FileReader();
+reader.onload = function(ev){
+var rows = String(ev.target.result || "").split(/\\r?\\n/), parsed = [], detBpm = 128;
+for(var i=1; i<rows.length; i++){
+var line = rows[i].trim(); if(!line) continue;
+var cols = line.split(","); if(cols.length < 22) continue;
+var bVal = parseInt(cols[42], 10);
+if(!isNaN(bVal) && bVal >= 40 && bVal <= 220) detBpm = bVal;
+parsed.push({
+ring: cols[1],
+colors: cols.slice(2, 22),
+kick: cols[43] === "1",
+geo: cols[44] || "fan",
+flame: cols[45] === "1",
+spark: cols[46] === "1",
+cryo: cols[47] === "1"
+});
+}
+if(parsed.length) loadSongFramesIntoShine(parsed, detBpm, file.name.slice(0, 16));
+};
+reader.readAsText(file);
+};
+document.getElementById("shineExportShowBtn").onclick = function(){
+var hdr = ["frame","ring_hex"];
+for(var k=1; k<=20; k++) hdr.push("k" + k + "_hex");
+for(var m=1; m<=20; m++) hdr.push("k" + m + "_label");
+hdr.push("bpm","strobe","laser_geo","pyro_flame","pyro_spark","pyro_cryo");
+var lines = [hdr.join(",")];
+for(var f=0; f<120; f++){
+var cue = showCues[Math.floor(f / 15) % showCues.length];
+var cols = [], lbls = [];
+for(var i=0; i<20; i++){
+cols.push(fixtures[(i + f) % fixtures.length].color);
+lbls.push(cue.geo.slice(0,4).toUpperCase() + (i+1));
+}
+lines.push([f+1, cue.cols[0]].concat(cols).concat(lbls).concat([bpm, (f%16===15?1:0), cue.geo, (f%16===0?1:0), (f%16===8?1:0), 0]).join(","));
+}
+var blob = new Blob([lines.join("\n")], {type: "text/csv;charset=utf-8"});
+var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "hawkshine_3d_dj_show.csv"; a.click();
+};
+function toggleStageFs(){
+var on = !document.body.classList.contains("fs-stage");
+document.body.classList.toggle("fs-stage", on);
+document.getElementById("exitStageFsBtn").hidden = !on;
+}
+document.getElementById("shineFsBtn").onclick = toggleStageFs;
+document.getElementById("exitStageFsBtn").onclick = toggleStageFs;
+window.addEventListener("storage", function(e){
+if(e.key === "ffh_dj_song_scripts") refreshSavedDjScriptsDropdown();
+if(e.key === "ffh_latest_rgb_show"){
+try{
+var data = JSON.parse(e.newValue || "null");
+if(data && data.frames) loadSongFramesIntoShine(data.frames, data.bpm || 128, data.name || "HawkRGB Script");
+}catch(err){}
+}
+if(e.key === "ffh_live_rgb_frame"){
+try{
+var lf = JSON.parse(e.newValue || "null");
+if(lf) applyRgbFrameToCurrentRig(lf);
+}catch(err){}
+}
+});
+if(suiteChan){
+var origSuiteMsg = suiteChan.onmessage;
+suiteChan.onmessage = function(e){
+if(origSuiteMsg) origSuiteMsg(e);
+if(e.data && e.data.type === "FFH_SCRIPT_PUSH" && e.data.frames){
+refreshSavedDjScriptsDropdown();
+loadSongFramesIntoShine(e.data.frames, e.data.bpm || 128, e.data.name || "HawkRGB Live Beam");
+}else if(e.data && e.data.type === "FFH_LIVE_FRAME" && e.data.frame){
+applyRgbFrameToCurrentRig(e.data.frame);
+}
+};
+}
+initSharedCustomizerBar();
+loadRigPreset("festival");
+renderCueBank();
+refreshSavedDjScriptsDropdown();
+loadSharedUi();
+spawnPyroBurst("spark");
+spawnPyroBurst("flame");
+requestAnimationFrame(renderShow);
+})();
+</script>
+</body>
+</html>
